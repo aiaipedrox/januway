@@ -1,4 +1,49 @@
 // ========================================
+// CONFIGURAÇÃO DE IMAGENS
+// ========================================
+// IMPORTANTE: Substitua as URLs abaixo pelas suas próprias imagens!
+// Você pode usar:
+// 1. URLs do Unsplash (gratuito): https://unsplash.com
+// 2. Suas próprias imagens hospedadas
+// 3. Imagens na pasta assets/ (ex: "assets/carne-premium.jpg")
+
+const PRODUCT_IMAGES = {
+    // Sanduíches - Substitua pelas suas fotos reais!
+    'Januway Carne Premium': 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop',
+    'Januway Frango': 'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=800&h=600&fit=crop',
+    'Januway Fit': 'https://images.unsplash.com/photo-1553909489-cd47e0907980?w=800&h=600&fit=crop',
+
+    // Bebidas
+    'Coca-Cola Lata 220ml': 'https://images.unsplash.com/photo-1554866585-cd94860890b7?w=400&h=400&fit=crop',
+    'Guaraná Lata 350ml': 'https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=400&h=400&fit=crop',
+
+    // Molhos
+    'Molho Barbecue': 'https://images.unsplash.com/photo-1472476443507-c7a5948772fc?w=400&h=400&fit=crop',
+    'Maionese Verde': 'https://images.unsplash.com/photo-1596040033229-a0b3b9b22e9a?w=400&h=400&fit=crop',
+    'Maionese de Bacon': 'https://images.unsplash.com/photo-1596040033229-a0b3b9b22e9a?w=400&h=400&fit=crop',
+    'Maionese': 'https://images.unsplash.com/photo-1596040033229-a0b3b9b22e9a?w=400&h=400&fit=crop',
+    'Molho Januway': 'https://images.unsplash.com/photo-1596040033229-a0b3b9b22e9a?w=400&h=400&fit=crop',
+    'Sachê Ketchup': 'https://images.unsplash.com/photo-1596040033229-a0b3b9b22e9a?w=400&h=400&fit=crop',
+
+    // Adicionais (proteínas)
+    'Carne Bovina em cubos': 'https://images.unsplash.com/photo-1588168333986-5078d3ae3976?w=400&h=400&fit=crop',
+    'Frango em cubos temperado': 'https://images.unsplash.com/photo-1588168333986-5078d3ae3976?w=400&h=400&fit=crop',
+    'Peito de Peru defumado': 'https://images.unsplash.com/photo-1588168333986-5078d3ae3976?w=400&h=400&fit=crop',
+
+    // Adicionais (queijos)
+    'Muçarela': 'https://images.unsplash.com/photo-1618164435735-413d3b066c9a?w=400&h=400&fit=crop',
+    'Queijo Cheddar': 'https://images.unsplash.com/photo-1618164435735-413d3b066c9a?w=400&h=400&fit=crop',
+
+    // Adicionais (vegetais)
+    'Picles': 'https://images.unsplash.com/photo-1530297698134-626d95460d8f?w=400&h=400&fit=crop',
+    'Pepino': 'https://images.unsplash.com/photo-1589927986089-35812378d34a?w=400&h=400&fit=crop',
+    'Pimentão': 'https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=400&h=400&fit=crop',
+    'Cebola Roxa': 'https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=400&h=400&fit=crop',
+    'Tomate': 'https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=400&h=400&fit=crop',
+    'Alface': 'https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?w=400&h=400&fit=crop'
+};
+
+// ========================================
 // DATA - MENU ITEMS
 // ========================================
 
@@ -8,6 +53,7 @@ const menuData = {
             id: 1,
             nome: "Januway Carne Premium",
             descricao: "Pão de 15cm, carne bovina em cubos 160g, queijo cheddar, alface, tomate, cebola roxa, pimentão verde, molho barbecue",
+            ingredientes: ["Pão artesanal 15cm", "Carne bovina em cubos 160g", "Queijo cheddar", "Alface", "Tomate", "Cebola roxa", "Pimentão verde", "Molho barbecue"],
             preco: 30.00,
             categoria: "sanduiches"
         },
@@ -15,6 +61,7 @@ const menuData = {
             id: 2,
             nome: "Januway Frango",
             descricao: "Pão de 15cm, frango em cubos temperado 160g, queijo muçarela, alface, tomate, cebola roxa, picles, molho Januway",
+            ingredientes: ["Pão artesanal 15cm", "Frango em cubos 160g", "Queijo muçarela", "Alface", "Tomate", "Cebola roxa", "Picles", "Molho Januway"],
             preco: 28.00,
             categoria: "sanduiches"
         },
@@ -22,6 +69,7 @@ const menuData = {
             id: 3,
             nome: "Januway Fit",
             descricao: "Pão de 15cm, peito de peru defumado, queijo muçarela, alface, tomate, pepino fresco, molho Januway",
+            ingredientes: ["Pão artesanal 15cm", "Peito de peru defumado", "Queijo muçarela", "Alface", "Tomate", "Pepino fresco", "Molho Januway"],
             preco: 23.00,
             categoria: "sanduiches"
         }
@@ -57,13 +105,14 @@ const menuData = {
 // STATE MANAGEMENT
 // ========================================
 
-let cart = [];
-let productQuantities = {};
-
-// Initialize quantities for all products
-Object.values(menuData).flat().forEach(product => {
-    productQuantities[product.id] = 0;
-});
+let currentStep = 0;
+let order = {
+    sandwich: null,
+    removedIngredients: [],
+    addedExtras: [],
+    drinks: [],
+    sauces: []
+};
 
 // ========================================
 // UTILITY FUNCTIONS
@@ -73,242 +122,357 @@ function formatCurrency(value) {
     return `R$ ${value.toFixed(2).replace('.', ',')}`;
 }
 
-function updateCartUI() {
-    const badge = document.getElementById('cart-badge');
-    const total = document.getElementById('cart-total');
-    const floatingCart = document.getElementById('floating-cart');
-
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    const totalValue = cart.reduce((sum, item) => sum + (item.preco * item.quantity), 0);
-
-    badge.textContent = totalItems;
-    total.textContent = formatCurrency(totalValue);
-
-    // Pulse animation on update
-    floatingCart.classList.add('pulse');
-    setTimeout(() => floatingCart.classList.remove('pulse'), 500);
+function getProductImage(productName) {
+    return PRODUCT_IMAGES[productName] || 'https://via.placeholder.com/400x300/1a4d2e/f3ec19?text=' + encodeURIComponent(productName);
 }
 
-function updateCartModal() {
-    const cartItems = document.getElementById('cart-items');
-    const cartEmpty = document.getElementById('cart-empty');
-    const subtotal = document.getElementById('subtotal');
-    const totalEl = document.getElementById('total');
+function calculateTotal() {
+    let total = 0;
 
-    if (cart.length === 0) {
-        cartItems.classList.remove('has-items');
-        cartEmpty.style.display = 'block';
-        return;
+    if (order.sandwich) {
+        total += order.sandwich.preco;
     }
 
-    cartItems.classList.add('has-items');
-    cartEmpty.style.display = 'none';
+    order.addedExtras.forEach(extra => {
+        total += extra.preco * (extra.quantity || 1);
+    });
 
-    cartItems.innerHTML = cart.map(item => `
-        <div class="cart-item">
-            <div class="cart-item-info">
-                <div class="cart-item-name">${item.nome}</div>
-                <div class="cart-item-details">${item.quantity}x ${formatCurrency(item.preco)}</div>
-            </div>
-            <div class="cart-item-actions">
-                <div class="cart-item-price">${formatCurrency(item.preco * item.quantity)}</div>
-                <button class="btn-remove" onclick="removeFromCart(${item.id})" aria-label="Remover item">
-                    🗑️
-                </button>
-            </div>
-        </div>
-    `).join('');
+    order.drinks.forEach(drink => {
+        total += drink.preco * (drink.quantity || 1);
+    });
 
-    const totalValue = cart.reduce((sum, item) => sum + (item.preco * item.quantity), 0);
-    subtotal.textContent = formatCurrency(totalValue);
-    totalEl.textContent = formatCurrency(totalValue);
+    order.sauces.forEach(sauce => {
+        total += sauce.preco * (sauce.quantity || 1);
+    });
+
+    return total;
 }
 
 // ========================================
-// CART OPERATIONS
+// STEP NAVIGATION
 // ========================================
 
-function addToCart(productId) {
-    const quantity = productQuantities[productId];
-
-    if (quantity === 0) {
-        alert('Por favor, selecione a quantidade antes de adicionar ao carrinho.');
-        return;
+function showStep(stepNumber) {
+    // Hide all screens
+    document.getElementById('welcome-screen').style.display = 'none';
+    for (let i = 1; i <= 5; i++) {
+        document.getElementById(`step-${i}`).style.display = 'none';
     }
 
-    const product = Object.values(menuData).flat().find(p => p.id === productId);
-    const existingItem = cart.find(item => item.id === productId);
-
-    if (existingItem) {
-        existingItem.quantity += quantity;
+    // Show current step
+    if (stepNumber === 0) {
+        document.getElementById('welcome-screen').style.display = 'block';
+        document.getElementById('progress-container').style.display = 'none';
     } else {
-        cart.push({
-            ...product,
-            quantity: quantity
-        });
+        document.getElementById(`step-${stepNumber}`).style.display = 'block';
+        document.getElementById('progress-container').style.display = 'block';
+        updateProgressBar(stepNumber);
     }
 
-    // Reset quantity display
-    productQuantities[productId] = 0;
-    updateQuantityDisplay(productId);
-
-    updateCartUI();
-    updateCartModal();
-
-    // Add animation to button
-    const btn = event.target;
-    btn.classList.add('adding');
-    setTimeout(() => btn.classList.remove('adding'), 500);
-
-    // Save to localStorage
-    saveCart();
+    currentStep = stepNumber;
+    window.scrollTo(0, 0);
 }
 
-function removeFromCart(productId) {
-    cart = cart.filter(item => item.id !== productId);
-    updateCartUI();
-    updateCartModal();
-    saveCart();
-}
+function updateProgressBar(stepNumber) {
+    const progressFill = document.getElementById('progress-fill');
+    const progressSteps = document.querySelectorAll('.progress-step');
 
-function incrementQuantity(productId) {
-    productQuantities[productId]++;
-    updateQuantityDisplay(productId);
-}
+    const percentage = ((stepNumber - 1) / 4) * 100;
+    progressFill.style.width = percentage + '%';
 
-function decrementQuantity(productId) {
-    if (productQuantities[productId] > 0) {
-        productQuantities[productId]--;
-        updateQuantityDisplay(productId);
-    }
-}
-
-function updateQuantityDisplay(productId) {
-    const display = document.querySelector(`[data-quantity-display="${productId}"]`);
-    if (display) {
-        display.textContent = productQuantities[productId];
-    }
+    progressSteps.forEach((step, index) => {
+        if (index < stepNumber) {
+            step.classList.add('active');
+        } else {
+            step.classList.remove('active');
+        }
+    });
 }
 
 // ========================================
-// RENDER FUNCTIONS
+// STEP 1: CHOOSE SANDWICH
 // ========================================
 
-function renderProducts(category, containerId) {
-    const container = document.getElementById(containerId);
-    const products = menuData[category];
-
-    container.innerHTML = products.map(product => `
-        <div class="product-card">
-            <h3 class="product-name">${product.nome}</h3>
-            ${product.descricao ? `<p class="product-description">${product.descricao}</p>` : ''}
-            <div class="product-price">${formatCurrency(product.preco)}</div>
-            <div class="product-actions">
-                <div class="quantity-controls">
-                    <button class="quantity-btn" onclick="decrementQuantity(${product.id})" aria-label="Diminuir quantidade">−</button>
-                    <span class="quantity-display" data-quantity-display="${product.id}">0</span>
-                    <button class="quantity-btn" onclick="incrementQuantity(${product.id})" aria-label="Aumentar quantidade">+</button>
-                </div>
-                <button class="btn btn-add-to-cart" onclick="addToCart(${product.id})">
-                    Adicionar ao Carrinho
-                </button>
+function renderSandwiches() {
+    const grid = document.getElementById('sandwiches-grid');
+    grid.innerHTML = menuData.sanduiches.map(sandwich => `
+        <div class="product-card sandwich-card" onclick="selectSandwich(${sandwich.id})">
+            <div class="product-image" style="background-image: url('${getProductImage(sandwich.nome)}')"></div>
+            <div class="product-info">
+                <h3 class="product-name">${sandwich.nome}</h3>
+                <p class="product-description">${sandwich.descricao}</p>
+                <div class="product-price">${formatCurrency(sandwich.preco)}</div>
+                <button class="btn btn-primary btn-select">Selecionar</button>
             </div>
         </div>
     `).join('');
 }
 
-function initializeMenu() {
-    renderProducts('sanduiches', 'sanduiches-grid');
-    renderProducts('bebidas', 'bebidas-grid');
-    renderProducts('molhos', 'molhos-grid');
-    renderProducts('adicionais', 'adicionais-grid');
+function selectSandwich(sandwichId) {
+    const sandwich = menuData.sanduiches.find(s => s.id === sandwichId);
+    order.sandwich = sandwich;
+    order.removedIngredients = []; // Reset
+    showStep(2);
+    renderCustomization();
 }
 
 // ========================================
-// MODAL MANAGEMENT
+// STEP 2: CUSTOMIZE SANDWICH
 // ========================================
 
-function openModal(modalId) {
-    const modal = document.getElementById(modalId);
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+function renderCustomization() {
+    // Display selected sandwich
+    const display = document.getElementById('selected-sandwich-display');
+    display.innerHTML = `
+        <div class="selected-item">
+            <div class="selected-image" style="background-image: url('${getProductImage(order.sandwich.nome)}')"></div>
+            <div class="selected-info">
+                <h3>${order.sandwich.nome}</h3>
+                <p class="price">${formatCurrency(order.sandwich.preco)}</p>
+            </div>
+        </div>
+    `;
+
+    // Render ingredients to remove
+    const ingredientsList = document.getElementById('remove-ingredients');
+    ingredientsList.innerHTML = order.sandwich.ingredientes
+        .filter(ing => !ing.includes('Pão')) // Não pode remover o pão
+        .map(ingredient => `
+            <label class="ingredient-checkbox">
+                <input type="checkbox"
+                       value="${ingredient}"
+                       onchange="toggleIngredient('${ingredient}')"
+                       ${order.removedIngredients.includes(ingredient) ? 'checked' : ''}>
+                <span class="checkbox-custom"></span>
+                <span class="ingredient-name">${ingredient}</span>
+            </label>
+        `).join('');
+
+    // Render extras to add
+    const extrasGrid = document.getElementById('add-extras');
+    extrasGrid.innerHTML = menuData.adicionais.map(extra => {
+        const existingExtra = order.addedExtras.find(e => e.id === extra.id);
+        const quantity = existingExtra ? existingExtra.quantity : 0;
+
+        return `
+            <div class="extra-card ${quantity > 0 ? 'selected' : ''}">
+                <div class="extra-image" style="background-image: url('${getProductImage(extra.nome)}')"></div>
+                <div class="extra-info">
+                    <h4>${extra.nome}</h4>
+                    <p class="extra-price">+${formatCurrency(extra.preco)}</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" onclick="changeExtraQuantity(${extra.id}, -1)">−</button>
+                        <span class="quantity-display">${quantity}</span>
+                        <button class="quantity-btn" onclick="changeExtraQuantity(${extra.id}, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
 }
 
-function closeModal(modalId) {
-    const modal = document.getElementById(modalId);
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
+function toggleIngredient(ingredient) {
+    const index = order.removedIngredients.indexOf(ingredient);
+    if (index === -1) {
+        order.removedIngredients.push(ingredient);
+    } else {
+        order.removedIngredients.splice(index, 1);
+    }
 }
 
-// ========================================
-// CHECKOUT PROCESS
-// ========================================
+function changeExtraQuantity(extraId, delta) {
+    const extra = menuData.adicionais.find(e => e.id === extraId);
+    const existingExtra = order.addedExtras.find(e => e.id === extraId);
 
-function proceedToCheckout() {
-    if (cart.length === 0) {
-        alert('Seu carrinho está vazio!');
-        return;
+    if (existingExtra) {
+        existingExtra.quantity += delta;
+        if (existingExtra.quantity <= 0) {
+            order.addedExtras = order.addedExtras.filter(e => e.id !== extraId);
+        }
+    } else if (delta > 0) {
+        order.addedExtras.push({ ...extra, quantity: 1 });
     }
 
-    closeModal('cart-modal');
-    setTimeout(() => openModal('checkout-modal'), 300);
+    renderCustomization();
 }
 
-function submitOrder(event) {
-    event.preventDefault();
+// ========================================
+// STEP 3: CHOOSE DRINK
+// ========================================
 
-    const formData = new FormData(event.target);
-    const customerData = {
-        name: formData.get('name'),
-        address: formData.get('address'),
-        neighborhood: formData.get('neighborhood'),
-        reference: formData.get('reference'),
-        payment: formData.get('payment'),
-        notes: formData.get('notes') || ''
-    };
+function renderDrinks() {
+    const grid = document.getElementById('drinks-grid');
+    grid.innerHTML = menuData.bebidas.map(drink => {
+        const existingDrink = order.drinks.find(d => d.id === drink.id);
+        const quantity = existingDrink ? existingDrink.quantity : 0;
 
-    // Generate WhatsApp message
-    const whatsappMessage = generateWhatsAppMessage(customerData);
-    const whatsappURL = `https://wa.me/5573936180266?text=${encodeURIComponent(whatsappMessage)}`;
-
-    // Close checkout modal
-    closeModal('checkout-modal');
-
-    // Show success modal
-    setTimeout(() => {
-        openModal('success-modal');
-        triggerConfetti();
-
-        // Auto-redirect to WhatsApp after 2 seconds
-        setTimeout(() => {
-            window.open(whatsappURL, '_blank');
-        }, 2000);
-
-        // Store WhatsApp URL for manual button click
-        document.getElementById('open-whatsapp').onclick = () => {
-            window.open(whatsappURL, '_blank');
-        };
-    }, 300);
-
-    // Clear cart
-    cart = [];
-    updateCartUI();
-    updateCartModal();
-    saveCart();
-
-    // Reset form
-    event.target.reset();
+        return `
+            <div class="product-card drink-card ${quantity > 0 ? 'selected' : ''}">
+                <div class="product-image" style="background-image: url('${getProductImage(drink.nome)}')"></div>
+                <div class="product-info">
+                    <h3 class="product-name">${drink.nome}</h3>
+                    <div class="product-price">${formatCurrency(drink.preco)}</div>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" onclick="changeDrinkQuantity(${drink.id}, -1)">−</button>
+                        <span class="quantity-display">${quantity}</span>
+                        <button class="quantity-btn" onclick="changeDrinkQuantity(${drink.id}, 1)">+</button>
+                    </div>
+                    ${quantity > 0 ? '<div class="selected-badge">✓ Adicionado</div>' : ''}
+                </div>
+            </div>
+        `;
+    }).join('');
 }
+
+function changeDrinkQuantity(drinkId, delta) {
+    const drink = menuData.bebidas.find(d => d.id === drinkId);
+    const existingDrink = order.drinks.find(d => d.id === drinkId);
+
+    if (existingDrink) {
+        existingDrink.quantity += delta;
+        if (existingDrink.quantity <= 0) {
+            order.drinks = order.drinks.filter(d => d.id !== drinkId);
+        }
+    } else if (delta > 0) {
+        order.drinks.push({ ...drink, quantity: 1 });
+    }
+
+    renderDrinks();
+}
+
+// ========================================
+// STEP 4: CHOOSE SAUCES
+// ========================================
+
+function renderSauces() {
+    const grid = document.getElementById('sauces-grid');
+    grid.innerHTML = menuData.molhos.map(sauce => {
+        const existingSauce = order.sauces.find(s => s.id === sauce.id);
+        const quantity = existingSauce ? existingSauce.quantity : 0;
+
+        return `
+            <div class="extra-card ${quantity > 0 ? 'selected' : ''}">
+                <div class="extra-image" style="background-image: url('${getProductImage(sauce.nome)}')"></div>
+                <div class="extra-info">
+                    <h4>${sauce.nome}</h4>
+                    <p class="extra-price">+${formatCurrency(sauce.preco)}</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" onclick="changeSauceQuantity(${sauce.id}, -1)">−</button>
+                        <span class="quantity-display">${quantity}</span>
+                        <button class="quantity-btn" onclick="changeSauceQuantity(${sauce.id}, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function changeSauceQuantity(sauceId, delta) {
+    const sauce = menuData.molhos.find(s => s.id === sauceId);
+    const existingSauce = order.sauces.find(s => s.id === sauceId);
+
+    if (existingSauce) {
+        existingSauce.quantity += delta;
+        if (existingSauce.quantity <= 0) {
+            order.sauces = order.sauces.filter(s => s.id !== sauceId);
+        }
+    } else if (delta > 0) {
+        order.sauces.push({ ...sauce, quantity: 1 });
+    }
+
+    renderSauces();
+}
+
+// ========================================
+// STEP 5: DELIVERY & SUMMARY
+// ========================================
+
+function renderOrderSummary() {
+    const summaryItems = document.getElementById('final-summary-items');
+    const finalTotal = document.getElementById('final-total');
+
+    let html = '';
+
+    // Sandwich
+    if (order.sandwich) {
+        html += `<div class="summary-item">
+            <span>${order.sandwich.nome}</span>
+            <span>${formatCurrency(order.sandwich.preco)}</span>
+        </div>`;
+
+        if (order.removedIngredients.length > 0) {
+            html += `<div class="summary-note">Sem: ${order.removedIngredients.join(', ')}</div>`;
+        }
+    }
+
+    // Extras
+    order.addedExtras.forEach(extra => {
+        html += `<div class="summary-item">
+            <span>${extra.quantity}x ${extra.nome}</span>
+            <span>${formatCurrency(extra.preco * extra.quantity)}</span>
+        </div>`;
+    });
+
+    // Drinks
+    order.drinks.forEach(drink => {
+        html += `<div class="summary-item">
+            <span>${drink.quantity}x ${drink.nome}</span>
+            <span>${formatCurrency(drink.preco * drink.quantity)}</span>
+        </div>`;
+    });
+
+    // Sauces
+    order.sauces.forEach(sauce => {
+        html += `<div class="summary-item">
+            <span>${sauce.quantity}x ${sauce.nome}</span>
+            <span>${formatCurrency(sauce.preco * sauce.quantity)}</span>
+        </div>`;
+    });
+
+    summaryItems.innerHTML = html;
+    finalTotal.textContent = formatCurrency(calculateTotal());
+}
+
+// ========================================
+// WHATSAPP MESSAGE
+// ========================================
 
 function generateWhatsAppMessage(customerData) {
     let message = '🍔 *NOVO PEDIDO - JANUWAY*\n\n';
     message += '*PEDIDO:*\n';
 
-    cart.forEach(item => {
-        message += `${item.quantity}x ${item.nome} - ${formatCurrency(item.preco * item.quantity)}\n`;
-    });
+    // Sandwich
+    if (order.sandwich) {
+        message += `• ${order.sandwich.nome} - ${formatCurrency(order.sandwich.preco)}\n`;
 
-    const total = cart.reduce((sum, item) => sum + (item.preco * item.quantity), 0);
+        if (order.removedIngredients.length > 0) {
+            message += `  ⚠️ Sem: ${order.removedIngredients.join(', ')}\n`;
+        }
+
+        if (order.addedExtras.length > 0) {
+            order.addedExtras.forEach(extra => {
+                message += `  ➕ ${extra.quantity}x ${extra.nome} - ${formatCurrency(extra.preco * extra.quantity)}\n`;
+            });
+        }
+    }
+
+    // Drinks
+    if (order.drinks.length > 0) {
+        message += '\n*BEBIDAS:*\n';
+        order.drinks.forEach(drink => {
+            message += `• ${drink.quantity}x ${drink.nome} - ${formatCurrency(drink.preco * drink.quantity)}\n`;
+        });
+    }
+
+    // Sauces
+    if (order.sauces.length > 0) {
+        message += '\n*MOLHOS EXTRAS:*\n';
+        order.sauces.forEach(sauce => {
+            message += `• ${sauce.quantity}x ${sauce.nome} - ${formatCurrency(sauce.preco * sauce.quantity)}\n`;
+        });
+    }
+
+    const total = calculateTotal();
     message += `\n*TOTAL: ${formatCurrency(total)}*\n\n`;
     message += '──────────────────\n\n';
     message += '👤 *DADOS DO CLIENTE:*\n';
@@ -325,104 +489,22 @@ function generateWhatsAppMessage(customerData) {
     return message;
 }
 
-// ========================================
-// CONFETTI ANIMATION
-// ========================================
+function sendToWhatsApp(customerData) {
+    const message = generateWhatsAppMessage(customerData);
+    const whatsappURL = `https://wa.me/5573936180266?text=${encodeURIComponent(message)}`;
 
-function triggerConfetti() {
-    const canvas = document.getElementById('confetti-canvas');
-    const ctx = canvas.getContext('2d');
+    // Show loading
+    document.getElementById('loading-overlay').style.display = 'flex';
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    canvas.classList.add('active');
+    setTimeout(() => {
+        window.open(whatsappURL, '_blank');
 
-    const confetti = [];
-    const confettiCount = 100;
-    const colors = ['#1a4d2e', '#f3ec19', '#ff6b6b', '#4ecdc4', '#45b7d1'];
-
-    for (let i = 0; i < confettiCount; i++) {
-        confetti.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height - canvas.height,
-            r: Math.random() * 6 + 2,
-            d: Math.random() * confettiCount,
-            color: colors[Math.floor(Math.random() * colors.length)],
-            tilt: Math.random() * 10 - 10,
-            tiltAngleIncremental: Math.random() * 0.07 + 0.05,
-            tiltAngle: 0
-        });
-    }
-
-    function drawConfetti() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        confetti.forEach((c, i) => {
-            ctx.beginPath();
-            ctx.lineWidth = c.r / 2;
-            ctx.strokeStyle = c.color;
-            ctx.moveTo(c.x + c.tilt + c.r / 3, c.y);
-            ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r / 5);
-            ctx.stroke();
-        });
-
-        updateConfetti();
-    }
-
-    function updateConfetti() {
-        confetti.forEach((c, i) => {
-            c.tiltAngle += c.tiltAngleIncremental;
-            c.y += (Math.cos(c.d) + 3 + c.r / 2) / 2;
-            c.x += Math.sin(c.d);
-            c.tilt = Math.sin(c.tiltAngle - i / 3) * 15;
-
-            if (c.y > canvas.height) {
-                confetti[i] = {
-                    x: Math.random() * canvas.width,
-                    y: -30,
-                    r: c.r,
-                    d: c.d,
-                    color: c.color,
-                    tilt: c.tilt,
-                    tiltAngleIncremental: c.tiltAngleIncremental,
-                    tiltAngle: c.tiltAngle
-                };
-            }
-        });
-    }
-
-    let animationId;
-    let duration = 3000;
-    let startTime = Date.now();
-
-    function animate() {
-        if (Date.now() - startTime < duration) {
-            drawConfetti();
-            animationId = requestAnimationFrame(animate);
-        } else {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            canvas.classList.remove('active');
-            cancelAnimationFrame(animationId);
-        }
-    }
-
-    animate();
-}
-
-// ========================================
-// LOCAL STORAGE
-// ========================================
-
-function saveCart() {
-    localStorage.setItem('januway-cart', JSON.stringify(cart));
-}
-
-function loadCart() {
-    const savedCart = localStorage.getItem('januway-cart');
-    if (savedCart) {
-        cart = JSON.parse(savedCart);
-        updateCartUI();
-    }
+        setTimeout(() => {
+            document.getElementById('loading-overlay').style.display = 'none';
+            alert('✅ Pedido enviado! Verifique o WhatsApp para confirmar o envio.');
+            location.reload(); // Reset para novo pedido
+        }, 1500);
+    }, 1000);
 }
 
 // ========================================
@@ -430,52 +512,65 @@ function loadCart() {
 // ========================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize menu
-    initializeMenu();
-
-    // Load saved cart
-    loadCart();
-
-    // Floating cart button
-    document.getElementById('floating-cart').addEventListener('click', () => {
-        openModal('cart-modal');
-        updateCartModal();
+    // Start order
+    document.getElementById('start-order').addEventListener('click', () => {
+        showStep(1);
+        renderSandwiches();
     });
 
-    // Close modal buttons
-    document.getElementById('close-cart').addEventListener('click', () => {
-        closeModal('cart-modal');
+    // Step 2 -> Step 3
+    document.getElementById('next-to-step-3').addEventListener('click', () => {
+        showStep(3);
+        renderDrinks();
     });
 
-    document.getElementById('close-checkout').addEventListener('click', () => {
-        closeModal('checkout-modal');
+    // Step 3 -> Step 4
+    document.getElementById('skip-drinks').addEventListener('click', () => {
+        showStep(4);
+        renderSauces();
     });
 
-    // Close modal when clicking outside
-    document.querySelectorAll('.modal').forEach(modal => {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal(modal.id);
-            }
-        });
+    // Step 4 -> Step 5
+    document.getElementById('skip-sauces').addEventListener('click', () => {
+        showStep(5);
+        renderOrderSummary();
     });
 
-    // Proceed to checkout
-    document.getElementById('proceed-checkout').addEventListener('click', proceedToCheckout);
+    // Back buttons
+    document.getElementById('back-to-step-1').addEventListener('click', () => {
+        showStep(1);
+        renderSandwiches();
+    });
 
-    // Submit order form
-    document.getElementById('checkout-form').addEventListener('submit', submitOrder);
-});
+    document.getElementById('back-to-step-2').addEventListener('click', () => {
+        showStep(2);
+        renderCustomization();
+    });
 
-// ========================================
-// KEYBOARD ACCESSIBILITY
-// ========================================
+    document.getElementById('back-to-step-3').addEventListener('click', () => {
+        showStep(3);
+        renderDrinks();
+    });
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        const activeModal = document.querySelector('.modal.active');
-        if (activeModal) {
-            closeModal(activeModal.id);
-        }
-    }
+    document.getElementById('back-to-step-4').addEventListener('click', () => {
+        showStep(4);
+        renderSauces();
+    });
+
+    // Submit form
+    document.getElementById('delivery-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const customerData = {
+            name: formData.get('name'),
+            address: formData.get('address'),
+            neighborhood: formData.get('neighborhood'),
+            reference: formData.get('reference'),
+            payment: formData.get('payment'),
+            notes: formData.get('notes') || ''
+        };
+
+        sendToWhatsApp(customerData);
+    });
 });

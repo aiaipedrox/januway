@@ -12,163 +12,213 @@
     <header class="header">
         <div class="container">
             <div class="logo-container">
-                <svg class="logo" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="40" height="40" rx="8" fill="#1a4d2e"/>
-                    <rect x="20" y="20" width="20" height="20" rx="4" fill="#f3ec19"/>
-                    <text x="60" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1a4d2e">JANUWAY</text>
+                <svg class="logo" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Hamburguer Icon -->
+                    <g transform="translate(10, 10)">
+                        <!-- Pão de cima -->
+                        <ellipse cx="30" cy="15" rx="28" ry="12" fill="#d4a574"/>
+                        <ellipse cx="30" cy="15" rx="25" ry="10" fill="#e6b887"/>
+                        <!-- Alface -->
+                        <path d="M 5,25 Q 30,20 55,25" fill="#7cb342" stroke="#689f38" stroke-width="2"/>
+                        <!-- Tomate -->
+                        <ellipse cx="30" cy="30" rx="25" ry="4" fill="#e53935"/>
+                        <!-- Carne -->
+                        <rect x="8" y="33" width="44" height="6" rx="2" fill="#6d4c41"/>
+                        <!-- Queijo -->
+                        <rect x="10" y="39" width="40" height="4" rx="1" fill="#f3ec19"/>
+                        <!-- Pão de baixo -->
+                        <ellipse cx="30" cy="48" rx="28" ry="8" fill="#d4a574"/>
+                    </g>
+                    <!-- Texto JANUWAY -->
+                    <text x="75" y="50" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#1a4d2e">JANUWAY</text>
                 </svg>
             </div>
             <p class="tagline">Sanduíches Artesanais Premium</p>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <!-- Sanduíches Section -->
-            <section class="menu-section" id="sanduiches">
-                <h2 class="section-title">🍔 Sanduíches</h2>
-                <div class="products-grid" id="sanduiches-grid"></div>
-            </section>
-
-            <!-- Bebidas Section -->
-            <section class="menu-section" id="bebidas">
-                <h2 class="section-title">🥤 Bebidas</h2>
-                <div class="products-grid" id="bebidas-grid"></div>
-            </section>
-
-            <!-- Molhos Section -->
-            <section class="menu-section" id="molhos">
-                <h2 class="section-title">🍯 Molhos</h2>
-                <div class="products-grid" id="molhos-grid"></div>
-            </section>
-
-            <!-- Adicionais Section -->
-            <section class="menu-section" id="adicionais">
-                <h2 class="section-title">➕ Adicionais</h2>
-                <div class="products-grid" id="adicionais-grid"></div>
-            </section>
+    <!-- Progress Bar -->
+    <div class="progress-container" id="progress-container" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
         </div>
-    </main>
-
-    <!-- Floating Cart Button -->
-    <button class="floating-cart" id="floating-cart" aria-label="Abrir carrinho">
-        <span class="cart-icon">🛒</span>
-        <span class="cart-badge" id="cart-badge">0</span>
-        <span class="cart-total" id="cart-total">R$ 0,00</span>
-    </button>
-
-    <!-- Cart Modal -->
-    <div class="modal" id="cart-modal">
-        <div class="modal-content cart-modal-content">
-            <div class="modal-header">
-                <h2>Seu Pedido</h2>
-                <button class="close-modal" id="close-cart">&times;</button>
+        <div class="progress-steps">
+            <div class="progress-step active" data-step="1">
+                <div class="step-circle">1</div>
+                <div class="step-label">Sanduíche</div>
             </div>
-            <div class="modal-body">
-                <div class="cart-items" id="cart-items"></div>
-                <div class="cart-empty" id="cart-empty">
-                    <p>Seu carrinho está vazio</p>
-                    <p class="cart-empty-subtitle">Adicione itens do cardápio para começar</p>
-                </div>
+            <div class="progress-step" data-step="2">
+                <div class="step-circle">2</div>
+                <div class="step-label">Personalizar</div>
             </div>
-            <div class="modal-footer">
-                <div class="cart-summary">
-                    <div class="summary-row">
-                        <span>Subtotal:</span>
-                        <span id="subtotal">R$ 0,00</span>
-                    </div>
-                    <div class="summary-row total-row">
-                        <span>Total:</span>
-                        <span id="total">R$ 0,00</span>
-                    </div>
-                </div>
-                <button class="btn btn-primary btn-large" id="proceed-checkout">
-                    Continuar para Entrega
+            <div class="progress-step" data-step="3">
+                <div class="step-circle">3</div>
+                <div class="step-label">Bebida</div>
+            </div>
+            <div class="progress-step" data-step="4">
+                <div class="step-circle">4</div>
+                <div class="step-label">Molhos</div>
+            </div>
+            <div class="progress-step" data-step="5">
+                <div class="step-circle">5</div>
+                <div class="step-label">Entrega</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content - Welcome Screen -->
+    <main class="main-content" id="welcome-screen">
+        <div class="container">
+            <div class="welcome-box">
+                <h1 class="welcome-title">Monte seu Sanduíche Perfeito! 🍔</h1>
+                <p class="welcome-subtitle">Siga o passo a passo e crie a combinação ideal</p>
+                <button class="btn btn-primary btn-large btn-start" id="start-order">
+                    Começar Pedido
                 </button>
             </div>
         </div>
-    </div>
+    </main>
 
-    <!-- Checkout Modal -->
-    <div class="modal" id="checkout-modal">
-        <div class="modal-content checkout-modal-content">
-            <div class="modal-header">
-                <h2>Dados para Entrega</h2>
-                <button class="close-modal" id="close-checkout">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="checkout-form">
-                    <div class="form-group">
-                        <label for="customer-name">Nome Completo *</label>
-                        <input type="text" id="customer-name" name="name" required placeholder="João Silva">
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="customer-address">Endereço (Rua e Número) *</label>
-                            <input type="text" id="customer-address" name="address" required placeholder="Rua das Flores, 123">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="customer-neighborhood">Bairro *</label>
-                        <input type="text" id="customer-neighborhood" name="neighborhood" required placeholder="Centro">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="customer-reference">Ponto de Referência *</label>
-                        <input type="text" id="customer-reference" name="reference" required placeholder="Próximo ao mercado">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Forma de Pagamento *</label>
-                        <div class="radio-group">
-                            <label class="radio-label">
-                                <input type="radio" name="payment" value="PIX" required>
-                                <span class="radio-custom"></span>
-                                PIX
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="payment" value="Cartão" required>
-                                <span class="radio-custom"></span>
-                                Cartão
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="customer-notes">Observações</label>
-                        <textarea id="customer-notes" name="notes" rows="3" placeholder="Ex: Sem cebola roxa"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-large">
-                        Finalizar Pedido
-                    </button>
-                </form>
-            </div>
+    <!-- Step 1: Escolher Sanduíche -->
+    <div class="step-screen" id="step-1" style="display: none;">
+        <div class="container">
+            <h2 class="step-title">Escolha seu Sanduíche</h2>
+            <div class="products-grid" id="sandwiches-grid"></div>
         </div>
     </div>
 
-    <!-- Success Modal -->
-    <div class="modal" id="success-modal">
-        <div class="modal-content success-modal-content">
-            <div class="success-animation">
-                <svg class="checkmark" viewBox="0 0 52 52">
-                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
-                    <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-                </svg>
+    <!-- Step 2: Personalizar Adicionais -->
+    <div class="step-screen" id="step-2" style="display: none;">
+        <div class="container">
+            <div class="customization-header">
+                <button class="btn-back" id="back-to-step-1">← Voltar</button>
+                <h2 class="step-title">Personalize seu Sanduíche</h2>
             </div>
-            <h2 class="success-title">Pedido Enviado com Sucesso!</h2>
-            <p class="success-subtitle">Você será redirecionado para o WhatsApp</p>
-            <button class="btn btn-primary btn-large" id="open-whatsapp">
-                Ir para WhatsApp
+
+            <div class="selected-sandwich" id="selected-sandwich-display"></div>
+
+            <div class="customization-section">
+                <h3>➖ Remover Ingredientes</h3>
+                <p class="section-subtitle">Selecione os ingredientes que você NÃO quer</p>
+                <div class="ingredients-list" id="remove-ingredients"></div>
+            </div>
+
+            <div class="customization-section">
+                <h3>➕ Adicionar Extras</h3>
+                <p class="section-subtitle">Turbine seu sanduíche!</p>
+                <div class="products-grid-small" id="add-extras"></div>
+            </div>
+
+            <button class="btn btn-primary btn-large btn-next" id="next-to-step-3">
+                Continuar para Bebidas →
             </button>
         </div>
     </div>
 
-    <!-- Canvas for Confetti Animation -->
-    <canvas id="confetti-canvas"></canvas>
+    <!-- Step 3: Escolher Bebida -->
+    <div class="step-screen" id="step-3" style="display: none;">
+        <div class="container">
+            <div class="customization-header">
+                <button class="btn-back" id="back-to-step-2">← Voltar</button>
+                <h2 class="step-title">Escolha sua Bebida</h2>
+            </div>
+            <p class="step-subtitle">Ou pule esta etapa se não quiser bebida</p>
+            <div class="products-grid" id="drinks-grid"></div>
+            <button class="btn btn-secondary btn-large" id="skip-drinks">
+                Não quero bebida →
+            </button>
+        </div>
+    </div>
+
+    <!-- Step 4: Escolher Molhos -->
+    <div class="step-screen" id="step-4" style="display: none;">
+        <div class="container">
+            <div class="customization-header">
+                <button class="btn-back" id="back-to-step-3">← Voltar</button>
+                <h2 class="step-title">Molhos Extras</h2>
+            </div>
+            <p class="step-subtitle">Adicione molhos extras ou pule esta etapa</p>
+            <div class="products-grid-small" id="sauces-grid"></div>
+            <button class="btn btn-secondary btn-large" id="skip-sauces">
+                Não quero molhos extras →
+            </button>
+        </div>
+    </div>
+
+    <!-- Step 5: Dados de Entrega -->
+    <div class="step-screen" id="step-5" style="display: none;">
+        <div class="container">
+            <div class="customization-header">
+                <button class="btn-back" id="back-to-step-4">← Voltar</button>
+                <h2 class="step-title">Dados para Entrega</h2>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary-card">
+                <h3>📋 Resumo do Pedido</h3>
+                <div class="summary-items" id="final-summary-items"></div>
+                <div class="summary-total">
+                    <span>Total:</span>
+                    <span id="final-total">R$ 0,00</span>
+                </div>
+            </div>
+
+            <!-- Delivery Form -->
+            <form id="delivery-form" class="delivery-form">
+                <div class="form-group">
+                    <label for="customer-name">Nome Completo *</label>
+                    <input type="text" id="customer-name" name="name" required placeholder="João Silva">
+                </div>
+
+                <div class="form-group">
+                    <label for="customer-address">Endereço (Rua e Número) *</label>
+                    <input type="text" id="customer-address" name="address" required placeholder="Rua das Flores, 123">
+                </div>
+
+                <div class="form-group">
+                    <label for="customer-neighborhood">Bairro *</label>
+                    <input type="text" id="customer-neighborhood" name="neighborhood" required placeholder="Centro">
+                </div>
+
+                <div class="form-group">
+                    <label for="customer-reference">Ponto de Referência *</label>
+                    <input type="text" id="customer-reference" name="reference" required placeholder="Próximo ao mercado">
+                </div>
+
+                <div class="form-group">
+                    <label>Forma de Pagamento *</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="payment" value="PIX" required>
+                            <span class="radio-custom"></span>
+                            💳 PIX
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="payment" value="Cartão" required>
+                            <span class="radio-custom"></span>
+                            💳 Cartão
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="customer-notes">Observações</label>
+                    <textarea id="customer-notes" name="notes" rows="3" placeholder="Ex: Sem cebola roxa, ponto da carne bem passado..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large btn-whatsapp">
+                    <span class="whatsapp-icon">📱</span>
+                    Enviar Pedido pelo WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p>Preparando seu pedido...</p>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
