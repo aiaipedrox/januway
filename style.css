@@ -48,15 +48,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.5rem 0;
+    padding: 1.5rem 1rem;
+    min-height: 100px;
 }
 
 .logo {
-    height: 120px;
-    width: auto;
-    max-width: 90%;
+    max-height: 80px;
+    max-width: 280px;
+    width: 100%;
+    height: auto;
     display: block;
     object-fit: contain;
+    object-position: center;
 }
 
 /* ========== PROGRESS BAR ========== */
@@ -872,17 +875,22 @@ body {
 
 /* ========== MOBILE RESPONSIVE ========== */
 @media (max-width: 768px) {
+    .logo-container {
+        padding: 1rem;
+        min-height: 80px;
+    }
+
     .logo {
-        height: 70px;
-        max-width: 85%;
+        max-height: 60px;
+        max-width: 240px;
     }
 
     .header {
-        padding: 1rem 0;
+        padding: 0.5rem 0;
     }
 
     .progress-container {
-        top: 60px;
+        top: 80px;
         padding: 0.75rem 0 1rem;
     }
 
@@ -976,17 +984,22 @@ body {
         padding: 2rem 0;
     }
 
+    .logo-container {
+        padding: 0.75rem;
+        min-height: 70px;
+    }
+
     .logo {
-        height: 55px;
-        max-width: 80%;
+        max-height: 50px;
+        max-width: 200px;
     }
 
     .header {
-        padding: 0.75rem 0;
+        padding: 0.25rem 0;
     }
 
     .progress-container {
-        top: 50px;
+        top: 70px;
     }
 
     .step-circle {
