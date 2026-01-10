@@ -45,11 +45,62 @@
 
     <!-- Welcome Screen -->
     <main class="screen active" id="screen-welcome">
+        <div class="welcome-hero">
+            <div class="hero-image"></div>
+            <div class="hero-overlay"></div>
+        </div>
+
         <div class="container">
-            <div class="welcome-content">
-                <h1 class="welcome-title">Monte seu Sanduíche</h1>
-                <p class="welcome-subtitle">Escolha cada ingrediente.<br>Personalize do seu jeito.</p>
-                <button class="btn btn-primary btn-large" id="btn-start">Começar Pedido</button>
+            <div class="restaurant-card">
+                <div class="restaurant-header">
+                    <div class="restaurant-info">
+                        <h1 class="restaurant-name">Januway</h1>
+                        <p class="restaurant-category">Sanduíches Artesanais</p>
+                        <div class="restaurant-meta">
+                            <span class="rating">⭐ 4.8</span>
+                            <span class="separator">•</span>
+                            <span class="min-order">Pedido mín. R$ 10,00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="delivery-info">
+                    <div class="delivery-item">
+                        <span class="delivery-icon">🕐</span>
+                        <div class="delivery-details">
+                            <div class="delivery-label">Tempo de entrega</div>
+                            <div class="delivery-value">30-40 min</div>
+                        </div>
+                    </div>
+                    <div class="delivery-item">
+                        <span class="delivery-icon">💰</span>
+                        <div class="delivery-details">
+                            <div class="delivery-label">Taxa de entrega</div>
+                            <div class="delivery-value">R$ 4,00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opening-hours">
+                    <div class="hours-header">
+                        <span class="hours-icon">🕐</span>
+                        <span class="hours-title">Horário de funcionamento</span>
+                        <span class="status-badge" id="status-badge">Fechado</span>
+                    </div>
+                    <div class="hours-detail">
+                        <span class="hours-days">Segunda a Domingo</span>
+                        <span class="hours-time">18:30 às 00:00</span>
+                    </div>
+                </div>
+
+                <div class="highlights-section">
+                    <h2 class="section-header">Mais Pedidos</h2>
+                    <div class="highlights-grid" id="highlights-grid"></div>
+                </div>
+
+                <button class="btn btn-primary btn-large btn-start-order" id="btn-start">
+                    🍔 Fazer Pedido Personalizado
+                </button>
             </div>
         </div>
     </main>

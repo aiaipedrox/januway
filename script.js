@@ -524,8 +524,71 @@ function setupEventListeners() {
     });
 }
 
+// ========== OPENING HOURS ==========
+function checkOpeningHours() {
+    const now = new Date();
+    const day = now.getDay(); // 0 = Domingo, 1 = Segunda, etc.
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+    const currentTime = hour * 60 + minute; // Converter para minutos
+
+    // Horário: 18:30 às 00:00 (meia-noite)
+    const openingTime = 18 * 60 + 30; // 18:30 = 1110 minutos
+    const closingTime = 24 * 60; // 00:00 = 1440 minutos (meia-noite)
+
+    const statusBadge = document.getElementById('status-badge');
+
+    // Verifica se está dentro do horário (18:30 até meia-noite)
+    if (currentTime >= openingTime && currentTime < closingTime) {
+        statusBadge.textContent = 'Aberto';
+        statusBadge.classList.remove('closed');
+        statusBadge.classList.add('open');
+    } else {
+        statusBadge.textContent = 'Fechado';
+        statusBadge.classList.remove('open');
+        statusBadge.classList.add('closed');
+    }
+}
+
+// ========== HIGHLIGHTS ==========
+function renderHighlights() {
+    const grid = document.getElementById('highlights-grid');
+
+    // Produtos em destaque (mais pedidos)
+    const highlights = [
+        { nome: 'Januway Carne Premium', preco: 28.00 },
+        { nome: 'Januway Frango', preco: 25.00 },
+        { nome: 'Januway Fit', preco: 23.00 },
+        { nome: 'Coca-Cola Lata 220ml', preco: 4.00 }
+    ];
+
+    highlights.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'highlight-card';
+        card.innerHTML = `
+            <div class="highlight-image" style="background-image: url('${getProductImage(product.nome)}')"></div>
+            <div class="highlight-info">
+                <div class="highlight-name">${product.nome}</div>
+                <div class="highlight-price">${formatPrice(product.preco)}</div>
+            </div>
+        `;
+
+        card.addEventListener('click', () => {
+            // Ao clicar no destaque, vai direto para começar pedido
+            document.getElementById('btn-start').click();
+        });
+
+        grid.appendChild(card);
+    });
+}
+
 // ========== INITIALIZATION ==========
 document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
     showScreen('welcome');
+    checkOpeningHours();
+    renderHighlights();
+
+    // Atualizar status a cada minuto
+    setInterval(checkOpeningHours, 60000);
 });

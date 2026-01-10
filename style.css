@@ -145,25 +145,219 @@ body {
 }
 
 /* ========== WELCOME SCREEN ========== */
-.welcome-content {
-    max-width: 600px;
-    margin: 6rem auto;
-    text-align: center;
+.welcome-hero {
+    position: relative;
+    height: 200px;
+    margin-bottom: -80px;
+    overflow: hidden;
 }
 
-.welcome-title {
-    font-size: 3rem;
+.hero-image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-green) 0%, #2d6a3f 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, var(--white) 100%);
+}
+
+.restaurant-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.restaurant-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.restaurant-name {
+    font-size: 2rem;
     font-weight: 700;
     color: var(--primary-green);
-    margin-bottom: 1rem;
-    line-height: 1.2;
+    margin-bottom: 0.25rem;
 }
 
-.welcome-subtitle {
-    font-size: 1.25rem;
+.restaurant-category {
+    font-size: 1rem;
     color: var(--text-light);
-    margin-bottom: 3rem;
-    line-height: 1.6;
+    margin-bottom: 0.75rem;
+}
+
+.restaurant-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.rating {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.separator {
+    color: var(--text-light);
+}
+
+.min-order {
+    color: var(--text-light);
+}
+
+.delivery-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.delivery-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.delivery-icon {
+    font-size: 1.5rem;
+}
+
+.delivery-label {
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+
+.delivery-value {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.opening-hours {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hours-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hours-icon {
+    font-size: 1.25rem;
+}
+
+.hours-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    flex: 1;
+}
+
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-badge.open {
+    background-color: #e8f5e9;
+    color: var(--success);
+}
+
+.status-badge.closed {
+    background-color: #ffebee;
+    color: var(--danger);
+}
+
+.hours-detail {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: var(--text-light);
+    padding-left: 2rem;
+}
+
+.highlights-section {
+    padding: 1.5rem 0;
+}
+
+.section-header {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.highlight-card {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.highlight-card:hover {
+    border-color: var(--primary-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-image {
+    width: 100%;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--bg-light);
+}
+
+.highlight-info {
+    padding: 0.75rem;
+}
+
+.highlight-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.highlight-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-green);
+}
+
+.btn-start-order {
+    margin-top: 1rem;
 }
 
 /* ========== STEP HEADERS ========== */
@@ -656,11 +850,15 @@ body {
 /* ========== MOBILE RESPONSIVE ========== */
 @media (max-width: 768px) {
     .logo {
-        height: 100px;
+        height: 80px;
+    }
+
+    .header {
+        padding: 1.5rem 0;
     }
 
     .progress-container {
-        top: 68px;
+        top: 65px;
     }
 
     .step-label {
@@ -673,16 +871,31 @@ body {
         font-size: 0.75rem;
     }
 
-    .welcome-content {
-        margin: 3rem auto;
+    .welcome-hero {
+        height: 150px;
+        margin-bottom: -60px;
     }
 
-    .welcome-title {
-        font-size: 2rem;
+    .restaurant-card {
+        padding: 1.5rem;
+        border-radius: 16px;
     }
 
-    .welcome-subtitle {
-        font-size: 1rem;
+    .restaurant-name {
+        font-size: 1.75rem;
+    }
+
+    .delivery-info {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .highlights-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .highlight-image {
+        height: 100px;
     }
 
     .step-title {
@@ -727,6 +940,22 @@ body {
 
     .screen {
         padding: 2rem 0;
+    }
+
+    .logo {
+        height: 60px;
+    }
+
+    .restaurant-card {
+        padding: 1rem;
+    }
+
+    .restaurant-name {
+        font-size: 1.5rem;
+    }
+
+    .highlights-grid {
+        gap: 0.75rem;
     }
 
     .btn-large {
