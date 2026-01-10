@@ -350,8 +350,8 @@ body {
 
 .highlight-image {
     width: 100%;
-    height: 120px;
-    background-size: contain;
+    height: 160px;
+    background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
     background-color: var(--bg-light);
@@ -506,8 +506,8 @@ body {
 
 .product-image {
     width: 100%;
-    height: 180px;
-    background-size: contain;
+    height: 220px;
+    background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
     background-color: var(--bg-light);
@@ -542,9 +542,9 @@ body {
 }
 
 .selected-sandwich-image {
-    width: 100px;
-    height: 100px;
-    background-size: contain;
+    width: 130px;
+    height: 130px;
+    background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
     background-color: var(--bg-light);
@@ -667,8 +667,8 @@ body {
 
 .extra-image {
     width: 100%;
-    height: 100px;
-    background-size: contain;
+    height: 140px;
+    background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
     background-color: var(--bg-light);
