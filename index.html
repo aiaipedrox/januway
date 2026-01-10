@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Januway Delivery - Peça seu sanduíche artesanal agora!">
+    <meta name="description" content="Januway Delivery - Monte seu sanduíche artesanal do seu jeito!">
     <title>Januway Delivery - Sanduíches Artesanais</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,15 +14,11 @@
             <div class="logo-container">
                 <img src="https://i.ibb.co/spvGNDrL/2-F117892-404-B-4-B05-923-B-4032-CBB2-ADE1.png" alt="Januway" class="logo">
             </div>
-            <p class="tagline">Sanduíches Artesanais Premium</p>
         </div>
     </header>
 
     <!-- Progress Bar -->
     <div class="progress-container" id="progress-container" style="display: none;">
-        <div class="progress-bar">
-            <div class="progress-fill" id="progress-fill"></div>
-        </div>
         <div class="progress-steps">
             <div class="progress-step active" data-step="1">
                 <div class="step-circle">1</div>
@@ -42,171 +38,151 @@
             </div>
             <div class="progress-step" data-step="5">
                 <div class="step-circle">5</div>
-                <div class="step-label">Entrega</div>
+                <div class="step-label">Finalizar</div>
             </div>
         </div>
     </div>
 
-    <!-- Main Content - Welcome Screen -->
-    <main class="main-content" id="welcome-screen">
+    <!-- Welcome Screen -->
+    <main class="screen active" id="screen-welcome">
         <div class="container">
-            <div class="welcome-box">
-                <h1 class="welcome-title">Monte seu Sanduíche Perfeito! 🍔</h1>
-                <p class="welcome-subtitle">Siga o passo a passo e crie a combinação ideal</p>
-                <button class="btn btn-primary btn-large btn-start" id="start-order">
-                    Começar Pedido
-                </button>
+            <div class="welcome-content">
+                <h1 class="welcome-title">Monte seu Sanduíche</h1>
+                <p class="welcome-subtitle">Escolha cada ingrediente.<br>Personalize do seu jeito.</p>
+                <button class="btn btn-primary btn-large" id="btn-start">Começar Pedido</button>
             </div>
         </div>
     </main>
 
     <!-- Step 1: Escolher Sanduíche -->
-    <div class="step-screen" id="step-1" style="display: none;">
+    <div class="screen" id="screen-step1">
         <div class="container">
             <h2 class="step-title">Escolha seu Sanduíche</h2>
             <div class="products-grid" id="sandwiches-grid"></div>
         </div>
     </div>
 
-    <!-- Step 2: Personalizar Adicionais -->
-    <div class="step-screen" id="step-2" style="display: none;">
+    <!-- Step 2: Personalizar -->
+    <div class="screen" id="screen-step2">
         <div class="container">
-            <div class="customization-header">
-                <button class="btn-back" id="back-to-step-1">← Voltar</button>
+            <div class="step-header">
+                <button class="btn-back" id="back-step2">← Voltar</button>
                 <h2 class="step-title">Monte seu Sanduíche</h2>
             </div>
 
-            <div class="selected-sandwich" id="selected-sandwich-display"></div>
+            <div class="selected-sandwich" id="selected-sandwich"></div>
 
-            <div class="customization-section">
-                <h3>🍔 Escolha os Ingredientes</h3>
-                <p class="section-subtitle">Selecione tudo que você QUER no seu sanduíche</p>
-                <div class="ingredients-list" id="choose-ingredients"></div>
+            <div class="section">
+                <h3 class="section-title">Escolha os Ingredientes</h3>
+                <p class="section-subtitle">Marque tudo que você quer no seu sanduíche</p>
+                <div class="ingredients-grid" id="ingredients-grid"></div>
             </div>
 
-            <div class="customization-section">
-                <h3>➕ Adicionar Extras</h3>
-                <p class="section-subtitle">Turbine ainda mais seu sanduíche!</p>
-                <div class="products-grid-small" id="add-extras"></div>
+            <div class="section">
+                <h3 class="section-title">Adicionar Extras</h3>
+                <p class="section-subtitle">Turbine seu sanduíche com mais ingredientes</p>
+                <div class="extras-grid" id="extras-grid"></div>
             </div>
 
-            <button class="btn btn-primary btn-large btn-next" id="next-to-step-3">
-                Continuar para Bebidas →
-            </button>
+            <button class="btn btn-primary btn-large" id="btn-continue-step2">Continuar para Bebidas →</button>
         </div>
     </div>
 
-    <!-- Step 3: Escolher Bebida -->
-    <div class="step-screen" id="step-3" style="display: none;">
+    <!-- Step 3: Bebidas -->
+    <div class="screen" id="screen-step3">
         <div class="container">
-            <div class="customization-header">
-                <button class="btn-back" id="back-to-step-2">← Voltar</button>
+            <div class="step-header">
+                <button class="btn-back" id="back-step3">← Voltar</button>
                 <h2 class="step-title">Escolha sua Bebida</h2>
             </div>
-            <p class="step-subtitle">Ou pule esta etapa se não quiser bebida</p>
+            <p class="step-subtitle">Selecione uma bebida ou pule esta etapa</p>
             <div class="products-grid" id="drinks-grid"></div>
-            <button class="btn btn-primary btn-large btn-next" id="continue-drinks" style="margin-bottom: 1rem;">
-                Continuar para Molhos →
-            </button>
-            <button class="btn btn-secondary btn-large" id="skip-drinks">
-                Não quero bebida
-            </button>
+            <button class="btn btn-primary btn-large" id="btn-continue-step3">Continuar para Molhos →</button>
+            <button class="btn btn-secondary btn-large" id="btn-skip-drinks">Não quero bebida</button>
         </div>
     </div>
 
-    <!-- Step 4: Escolher Molhos -->
-    <div class="step-screen" id="step-4" style="display: none;">
+    <!-- Step 4: Molhos -->
+    <div class="screen" id="screen-step4">
         <div class="container">
-            <div class="customization-header">
-                <button class="btn-back" id="back-to-step-3">← Voltar</button>
+            <div class="step-header">
+                <button class="btn-back" id="back-step4">← Voltar</button>
                 <h2 class="step-title">Molhos Extras</h2>
             </div>
             <p class="step-subtitle">Adicione molhos extras ou pule esta etapa</p>
-            <div class="products-grid-small" id="sauces-grid"></div>
-            <button class="btn btn-secondary btn-large" id="skip-sauces">
-                Não quero molhos extras →
-            </button>
+            <div class="sauces-grid" id="sauces-grid"></div>
+            <button class="btn btn-primary btn-large" id="btn-continue-step4">Continuar para Entrega →</button>
+            <button class="btn btn-secondary btn-large" id="btn-skip-sauces">Não quero molhos extras</button>
         </div>
     </div>
 
-    <!-- Step 5: Dados de Entrega -->
-    <div class="step-screen" id="step-5" style="display: none;">
+    <!-- Step 5: Finalizar -->
+    <div class="screen" id="screen-step5">
         <div class="container">
-            <div class="customization-header">
-                <button class="btn-back" id="back-to-step-4">← Voltar</button>
+            <div class="step-header">
+                <button class="btn-back" id="back-step5">← Voltar</button>
                 <h2 class="step-title">Dados para Entrega</h2>
             </div>
 
-            <!-- Order Summary -->
-            <div class="order-summary-card">
-                <h3>📋 Resumo do Pedido</h3>
-                <div class="summary-items" id="final-summary-items"></div>
+            <div class="order-summary">
+                <h3 class="summary-title">Resumo do Pedido</h3>
+                <div class="summary-items" id="summary-items"></div>
                 <div class="summary-total">
                     <span>Total:</span>
-                    <span id="final-total">R$ 0,00</span>
+                    <span class="total-value" id="total-value">R$ 0,00</span>
                 </div>
             </div>
 
-            <!-- Delivery Form -->
             <form id="delivery-form" class="delivery-form">
                 <div class="form-group">
-                    <label for="customer-name">Nome Completo *</label>
-                    <input type="text" id="customer-name" name="name" required placeholder="João Silva">
+                    <label for="name">Nome Completo *</label>
+                    <input type="text" id="name" name="name" required placeholder="Seu nome">
                 </div>
 
                 <div class="form-group">
-                    <label for="customer-address">Endereço (Rua e Número) *</label>
-                    <input type="text" id="customer-address" name="address" required placeholder="Rua das Flores, 123">
+                    <label for="address">Endereço (Rua e Número) *</label>
+                    <input type="text" id="address" name="address" required placeholder="Rua das Flores, 123">
                 </div>
 
                 <div class="form-group">
-                    <label for="customer-neighborhood">Bairro *</label>
-                    <input type="text" id="customer-neighborhood" name="neighborhood" required placeholder="Centro">
+                    <label for="neighborhood">Bairro *</label>
+                    <input type="text" id="neighborhood" name="neighborhood" required placeholder="Centro">
                 </div>
 
                 <div class="form-group">
-                    <label for="customer-reference">Ponto de Referência *</label>
-                    <input type="text" id="customer-reference" name="reference" required placeholder="Próximo ao mercado">
+                    <label for="reference">Ponto de Referência *</label>
+                    <input type="text" id="reference" name="reference" required placeholder="Próximo ao mercado">
                 </div>
 
                 <div class="form-group">
                     <label>Forma de Pagamento *</label>
-                    <div class="radio-group">
-                        <label class="radio-label">
+                    <div class="payment-options">
+                        <label class="payment-option">
                             <input type="radio" name="payment" value="PIX" required>
-                            <span class="radio-custom"></span>
-                            💰 PIX
+                            <span class="payment-label">💰 PIX</span>
                         </label>
-                        <label class="radio-label">
+                        <label class="payment-option">
                             <input type="radio" name="payment" value="Dinheiro" required>
-                            <span class="radio-custom"></span>
-                            💵 Dinheiro
+                            <span class="payment-label">💵 Dinheiro</span>
                         </label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="customer-notes">Observações</label>
-                    <textarea id="customer-notes" name="notes" rows="3" placeholder="Ex: Sem cebola roxa, ponto da carne bem passado..."></textarea>
+                    <label for="notes">Observações</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Ex: Sem cebola, ponto da carne bem passado..."></textarea>
                 </div>
 
                 <div class="whatsapp-info">
-                    <p>🎯 <strong>Pronto para finalizar?</strong></p>
-                    <p>Ao clicar no botão abaixo, seu pedido será enviado automaticamente para nosso WhatsApp. Você será redirecionado para completar o envio!</p>
+                    <p><strong>Pronto para finalizar?</strong></p>
+                    <p>Seu pedido será enviado automaticamente para nosso WhatsApp. Você será redirecionado para completar o envio!</p>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-large btn-whatsapp">
-                    <span class="whatsapp-icon">📱</span>
-                    Enviar Pedido pelo WhatsApp
+                    <span>📱</span> Enviar Pedido pelo WhatsApp
                 </button>
             </form>
         </div>
-    </div>
-
-    <!-- Loading Overlay -->
-    <div class="loading-overlay" id="loading-overlay" style="display: none;">
-        <div class="loading-spinner"></div>
-        <p>Preparando seu pedido...</p>
     </div>
 
     <!-- Footer -->

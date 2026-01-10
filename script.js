@@ -1,588 +1,531 @@
-// ========================================
-// CONFIGURAÇÃO DE IMAGENS
-// ========================================
-// Imagens reais dos produtos Januway
-
+// ========== PRODUCT IMAGES ==========
 const PRODUCT_IMAGES = {
-    // Sanduíches - Fotos Reais Januway
+    // Sanduíches
     'Januway Carne Premium': 'https://i.ibb.co/Y7Rp7N6V/IMG-3826.jpg',
     'Januway Frango': 'https://i.ibb.co/b51Njszz/IMG-3830.jpg',
-    'Januway Fit': 'https://i.ibb.co/TBnVLNNM/IMG-3832.jpg',
+    'Januway Fit': 'https://i.ibb.co/7bjMXhD1/IMG-3832.jpg',
 
     // Bebidas
-    'Coca-Cola Lata 220ml': 'https://i.ibb.co/wNzXvcVS/IMG-3864.jpg',
-    'Guaraná Lata 350ml': 'https://i.ibb.co/DqKKBYg/IMG-3865.jpg',
+    'Coca-Cola Lata 220ml': 'https://i.ibb.co/bXXK9vGZ/IMG-3847.jpg',
+    'Guaraná Lata 350ml': 'https://i.ibb.co/j84sHs96/IMG-3853.jpg',
 
     // Molhos
-    'Molho Barbecue': 'https://i.ibb.co/LzWhbTc6/IMG-3860.jpg',
-    'Maionese Verde': 'https://i.ibb.co/q34HgfxN/IMG-3861.jpg',
-    'Maionese de Bacon': 'https://i.ibb.co/jZh8YK2X/IMG-3862.jpg',
-    'Maionese': 'https://i.ibb.co/QFS5MDf1/IMG-3866.jpg',
-    'Molho Januway': 'https://images.unsplash.com/photo-1596040033229-a0b3b9b22e9a?w=400&h=400&fit=crop',
-    'Sachê Ketchup': 'https://i.ibb.co/v410Zw7x/IMG-3863.jpg',
+    'Molho Barbecue': 'https://i.ibb.co/wcMjJWDc/IMG-3840.jpg',
+    'Maionese Verde': 'https://i.ibb.co/KKNXy8kx/IMG-3841.jpg',
+    'Maionese de Bacon': 'https://i.ibb.co/VqZr6Ys5/IMG-3842.jpg',
+    'Maionese': 'https://i.ibb.co/52TGk2nZ/IMG-3843.jpg',
+    'Molho Januway': 'https://i.ibb.co/6XXvfCR4/IMG-3844.jpg',
+    'Sachê Ketchup': 'https://i.ibb.co/2KTyFSz2/IMG-3846.jpg',
 
-    // Adicionais (proteínas)
-    'Carne Bovina em cubos': 'https://i.ibb.co/nqrqc09m/IMG-3833.jpg',
-    'Frango em cubos temperado': 'https://i.ibb.co/LdnR6QPg/IMG-3834.jpg',
-    'Peito de Peru defumado': 'https://i.ibb.co/nq4pGsR1/IMG-3835.jpg',
-    'Pepperoni': 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400&h=400&fit=crop',
-
-    // Adicionais (queijos)
-    'Muçarela': 'https://i.ibb.co/zWm8MpMH/IMG-3837.jpg',
-    'Queijo Cheddar': 'https://i.ibb.co/wGG3tWT/IMG-3838.jpg',
-
-    // Adicionais (vegetais)
-    'Picles': 'https://i.ibb.co/qLNBKn8Z/IMG-3840.jpg',
-    'Pepino': 'https://i.ibb.co/dsgY96kR/IMG-3841.jpg',
-    'Pimentão': 'https://i.ibb.co/SXSc4gqN/IMG-3842.jpg',
-    'Cebola Roxa': 'https://i.ibb.co/DHxVz10Z/IMG-3857.jpg',
-    'Tomate': 'https://i.ibb.co/sd8GpyBs/IMG-3858.jpg',
-    'Alface': 'https://i.ibb.co/5g1FqNzM/IMG-3859.jpg'
+    // Adicionais
+    'Carne Bovina em cubos': 'https://i.ibb.co/gj59Fmy6/IMG-3833.jpg',
+    'Frango em cubos temperado': 'https://i.ibb.co/nrQM3xgK/IMG-3834.jpg',
+    'Peito de Peru defumado': 'https://i.ibb.co/mzRd2YJ8/IMG-3835.jpg',
+    'Muçarela': 'https://i.ibb.co/M1prQkfg/IMG-3836.jpg',
+    'Queijo Cheddar': 'https://i.ibb.co/qr4cgMZ4/IMG-3837.jpg',
+    'Picles': 'https://i.ibb.co/xsyqrfdx/IMG-3838.jpg',
+    'Pepino': 'https://i.ibb.co/mqWwhxM6/IMG-3839.jpg',
+    'Pimentão': 'https://i.ibb.co/8M66wd95/IMG-3848.jpg',
+    'Cebola Roxa': 'https://i.ibb.co/S0Xq3vrS/IMG-3849.jpg',
+    'Tomate': 'https://i.ibb.co/6rCcN7Xr/IMG-3850.jpg',
+    'Alface': 'https://i.ibb.co/bXNYxZCy/IMG-3851.jpg',
+    'Pepperoni': 'https://i.ibb.co/4pzxz4JF/IMG-3852.jpg'
 };
 
-// ========================================
-// DATA - MENU ITEMS
-// ========================================
-
+// ========== MENU DATA ==========
 const menuData = {
     sanduiches: [
-        {
-            id: 1,
-            nome: "Januway Carne Premium",
-            descricao: "Pão de 15cm, carne bovina em cubos 160g, queijo cheddar, alface, tomate, cebola roxa, pimentão verde, molho barbecue",
-            ingredientes: ["Pão artesanal 15cm", "Carne bovina em cubos 160g", "Queijo cheddar", "Alface", "Tomate", "Cebola roxa", "Pimentão verde", "Molho barbecue"],
-            preco: 28.00,
-            categoria: "sanduiches"
-        },
-        {
-            id: 2,
-            nome: "Januway Frango",
-            descricao: "Pão de 15cm, frango em cubos temperado 160g, queijo muçarela, alface, tomate, cebola roxa, picles, molho Januway",
-            ingredientes: ["Pão artesanal 15cm", "Frango em cubos 160g", "Queijo muçarela", "Alface", "Tomate", "Cebola roxa", "Picles", "Molho Januway"],
-            preco: 25.00,
-            categoria: "sanduiches"
-        },
-        {
-            id: 3,
-            nome: "Januway Fit",
-            descricao: "Pão de 15cm, peito de peru defumado, queijo muçarela, alface, tomate, pepino fresco, molho Januway",
-            ingredientes: ["Pão artesanal 15cm", "Peito de peru defumado", "Queijo muçarela", "Alface", "Tomate", "Pepino fresco", "Molho Januway"],
-            preco: 23.00,
-            categoria: "sanduiches"
-        }
+        { id: 1, nome: 'Januway Carne Premium', preco: 28.00 },
+        { id: 2, nome: 'Januway Frango', preco: 25.00 },
+        { id: 3, nome: 'Januway Fit', preco: 23.00 }
     ],
-    bebidas: [
-        { id: 4, nome: "Coca-Cola Lata 220ml", preco: 5.00, categoria: "bebidas" },
-        { id: 5, nome: "Guaraná Lata 350ml", preco: 5.00, categoria: "bebidas" }
+
+    ingredientes: [
+        'Alface',
+        'Tomate',
+        'Cebola Roxa',
+        'Pimentão',
+        'Pepino',
+        'Picles'
     ],
-    molhos: [
-        { id: 6, nome: "Molho Barbecue", preco: 3.99, categoria: "molhos" },
-        { id: 7, nome: "Maionese Verde", preco: 3.99, categoria: "molhos" },
-        { id: 8, nome: "Maionese de Bacon", preco: 3.99, categoria: "molhos" },
-        { id: 9, nome: "Maionese", preco: 3.99, categoria: "molhos" },
-        { id: 10, nome: "Molho Januway", preco: 3.99, categoria: "molhos" },
-        { id: 11, nome: "Sachê Ketchup", preco: 0.50, categoria: "molhos" }
-    ],
+
     adicionais: [
-        { id: 12, nome: "Carne Bovina em cubos", preco: 5.00, categoria: "adicionais" },
-        { id: 13, nome: "Frango em cubos temperado", preco: 4.00, categoria: "adicionais" },
-        { id: 14, nome: "Peito de Peru defumado", preco: 4.00, categoria: "adicionais" },
-        { id: 23, nome: "Pepperoni", preco: 4.00, categoria: "adicionais" },
-        { id: 15, nome: "Muçarela", preco: 3.00, categoria: "adicionais" },
-        { id: 16, nome: "Queijo Cheddar", preco: 3.00, categoria: "adicionais" },
-        { id: 17, nome: "Picles", preco: 3.00, categoria: "adicionais" },
-        { id: 18, nome: "Pepino", preco: 1.00, categoria: "adicionais" },
-        { id: 19, nome: "Pimentão", preco: 1.00, categoria: "adicionais" },
-        { id: 20, nome: "Cebola Roxa", preco: 1.00, categoria: "adicionais" },
-        { id: 21, nome: "Tomate", preco: 1.00, categoria: "adicionais" },
-        { id: 22, nome: "Alface", preco: 1.00, categoria: "adicionais" }
+        { id: 11, nome: 'Carne Bovina em cubos', preco: 6.00 },
+        { id: 12, nome: 'Frango em cubos temperado', preco: 5.00 },
+        { id: 13, nome: 'Peito de Peru defumado', preco: 4.00 },
+        { id: 14, nome: 'Muçarela', preco: 3.00 },
+        { id: 15, nome: 'Queijo Cheddar', preco: 3.50 },
+        { id: 23, nome: 'Pepperoni', preco: 4.00 }
+    ],
+
+    bebidas: [
+        { id: 16, nome: 'Coca-Cola Lata 220ml', preco: 4.00 },
+        { id: 17, nome: 'Guaraná Lata 350ml', preco: 5.00 }
+    ],
+
+    molhos: [
+        { id: 18, nome: 'Molho Barbecue', preco: 2.00 },
+        { id: 19, nome: 'Maionese Verde', preco: 2.00 },
+        { id: 20, nome: 'Maionese de Bacon', preco: 2.50 },
+        { id: 21, nome: 'Maionese', preco: 1.50 },
+        { id: 22, nome: 'Molho Januway', preco: 2.50 },
+        { id: 24, nome: 'Sachê Ketchup', preco: 0.50 }
     ]
 };
 
-// ========================================
-// STATE MANAGEMENT
-// ========================================
-
-let currentStep = 0;
-let order = {
-    sandwich: null,
+// ========== STATE MANAGEMENT ==========
+const state = {
+    currentStep: 'welcome',
+    selectedSandwich: null,
     chosenIngredients: [],
-    addedExtras: [],
-    drinks: [],
-    sauces: []
+    selectedExtras: [],
+    selectedDrink: null,
+    selectedSauces: []
 };
 
-// ========================================
-// UTILITY FUNCTIONS
-// ========================================
-
-function formatCurrency(value) {
-    return `R$ ${value.toFixed(2).replace('.', ',')}`;
+// ========== HELPER FUNCTIONS ==========
+function getProductImage(productName) {
+    return PRODUCT_IMAGES[productName] || 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop';
 }
 
-function getProductImage(productName) {
-    return PRODUCT_IMAGES[productName] || 'https://via.placeholder.com/400x300/1a4d2e/f3ec19?text=' + encodeURIComponent(productName);
+function formatPrice(price) {
+    return `R$ ${price.toFixed(2).replace('.', ',')}`;
 }
 
 function calculateTotal() {
     let total = 0;
 
-    if (order.sandwich) {
-        total += order.sandwich.preco;
+    if (state.selectedSandwich) {
+        total += state.selectedSandwich.preco;
     }
 
-    order.addedExtras.forEach(extra => {
-        total += extra.preco * (extra.quantity || 1);
+    state.selectedExtras.forEach(extra => {
+        total += extra.preco;
     });
 
-    order.drinks.forEach(drink => {
-        total += drink.preco * (drink.quantity || 1);
-    });
+    if (state.selectedDrink) {
+        total += state.selectedDrink.preco;
+    }
 
-    order.sauces.forEach(sauce => {
-        total += sauce.preco * (sauce.quantity || 1);
+    state.selectedSauces.forEach(sauce => {
+        total += sauce.preco;
     });
 
     return total;
 }
 
-// ========================================
-// STEP NAVIGATION
-// ========================================
+// ========== SCREEN MANAGEMENT ==========
+function showScreen(screenId) {
+    document.querySelectorAll('.screen').forEach(screen => {
+        screen.classList.remove('active');
+    });
 
-function showStep(stepNumber) {
-    // Hide all screens
-    document.getElementById('welcome-screen').style.display = 'none';
-    for (let i = 1; i <= 5; i++) {
-        document.getElementById(`step-${i}`).style.display = 'none';
+    const screen = document.getElementById(`screen-${screenId}`);
+    if (screen) {
+        screen.classList.add('active');
     }
 
-    // Show current step
-    if (stepNumber === 0) {
-        document.getElementById('welcome-screen').style.display = 'block';
-        document.getElementById('progress-container').style.display = 'none';
+    // Show/hide progress bar
+    const progressContainer = document.getElementById('progress-container');
+    if (screenId === 'welcome') {
+        progressContainer.style.display = 'none';
     } else {
-        document.getElementById(`step-${stepNumber}`).style.display = 'block';
-        document.getElementById('progress-container').style.display = 'block';
-        updateProgressBar(stepNumber);
+        progressContainer.style.display = 'block';
+        updateProgressBar(screenId);
     }
 
-    currentStep = stepNumber;
-    window.scrollTo(0, 0);
+    state.currentStep = screenId;
 }
 
-function updateProgressBar(stepNumber) {
-    const progressFill = document.getElementById('progress-fill');
-    const progressSteps = document.querySelectorAll('.progress-step');
+function updateProgressBar(step) {
+    const stepMap = {
+        'step1': 1,
+        'step2': 2,
+        'step3': 3,
+        'step4': 4,
+        'step5': 5
+    };
 
-    const percentage = ((stepNumber - 1) / 4) * 100;
-    progressFill.style.width = percentage + '%';
+    const currentStepNumber = stepMap[step];
 
-    progressSteps.forEach((step, index) => {
-        if (index < stepNumber) {
-            step.classList.add('active');
+    document.querySelectorAll('.progress-step').forEach((stepEl, index) => {
+        if (index < currentStepNumber) {
+            stepEl.classList.add('active');
         } else {
-            step.classList.remove('active');
+            stepEl.classList.remove('active');
         }
     });
 }
 
-// ========================================
-// STEP 1: CHOOSE SANDWICH
-// ========================================
-
+// ========== RENDER FUNCTIONS ==========
 function renderSandwiches() {
     const grid = document.getElementById('sandwiches-grid');
-    grid.innerHTML = menuData.sanduiches.map(sandwich => `
-        <div class="product-card sandwich-card" onclick="selectSandwich(${sandwich.id})">
+    grid.innerHTML = '';
+
+    menuData.sanduiches.forEach(sandwich => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
             <div class="product-image" style="background-image: url('${getProductImage(sandwich.nome)}')"></div>
             <div class="product-info">
                 <h3 class="product-name">${sandwich.nome}</h3>
-                <p class="product-description">${sandwich.descricao}</p>
-                <div class="product-price">${formatCurrency(sandwich.preco)}</div>
-                <button class="btn btn-primary btn-select">Selecionar</button>
-            </div>
-        </div>
-    `).join('');
-}
-
-function selectSandwich(sandwichId) {
-    const sandwich = menuData.sanduiches.find(s => s.id === sandwichId);
-    order.sandwich = sandwich;
-    order.chosenIngredients = []; // Reset
-    showStep(2);
-    renderCustomization();
-}
-
-// ========================================
-// STEP 2: CUSTOMIZE SANDWICH
-// ========================================
-
-function renderCustomization() {
-    // Display selected sandwich
-    const display = document.getElementById('selected-sandwich-display');
-    display.innerHTML = `
-        <div class="selected-item">
-            <div class="selected-image" style="background-image: url('${getProductImage(order.sandwich.nome)}')"></div>
-            <div class="selected-info">
-                <h3>${order.sandwich.nome}</h3>
-                <p class="price">${formatCurrency(order.sandwich.preco)}</p>
-            </div>
-        </div>
-    `;
-
-    // Render ingredients to choose
-    const ingredientsList = document.getElementById('choose-ingredients');
-    const availableIngredients = [
-        "Carne bovina em cubos",
-        "Frango em cubos",
-        "Peito de peru defumado",
-        "Queijo cheddar",
-        "Queijo muçarela",
-        "Alface",
-        "Tomate",
-        "Cebola roxa",
-        "Picles",
-        "Pepino",
-        "Pimentão verde",
-        "Molho barbecue",
-        "Molho Januway"
-    ];
-
-    ingredientsList.innerHTML = availableIngredients.map(ingredient => `
-        <label class="ingredient-checkbox">
-            <input type="checkbox"
-                   value="${ingredient}"
-                   onchange="toggleIngredient('${ingredient}')"
-                   ${order.chosenIngredients.includes(ingredient) ? 'checked' : ''}>
-            <span class="checkbox-custom"></span>
-            <span class="ingredient-name">${ingredient}</span>
-        </label>
-    `).join('');
-
-    // Render extras to add
-    const extrasGrid = document.getElementById('add-extras');
-    extrasGrid.innerHTML = menuData.adicionais.map(extra => {
-        const existingExtra = order.addedExtras.find(e => e.id === extra.id);
-        const quantity = existingExtra ? existingExtra.quantity : 0;
-
-        return `
-            <div class="extra-card ${quantity > 0 ? 'selected' : ''}">
-                <div class="extra-image" style="background-image: url('${getProductImage(extra.nome)}')"></div>
-                <div class="extra-info">
-                    <h4>${extra.nome}</h4>
-                    <p class="extra-price">+${formatCurrency(extra.preco)}</p>
-                    <div class="quantity-controls">
-                        <button class="quantity-btn" onclick="changeExtraQuantity(${extra.id}, -1)">−</button>
-                        <span class="quantity-display">${quantity}</span>
-                        <button class="quantity-btn" onclick="changeExtraQuantity(${extra.id}, 1)">+</button>
-                    </div>
-                </div>
+                <p class="product-price">${formatPrice(sandwich.preco)}</p>
             </div>
         `;
-    }).join('');
+
+        card.addEventListener('click', () => {
+            state.selectedSandwich = sandwich;
+            showScreen('step2');
+            renderStep2();
+        });
+
+        grid.appendChild(card);
+    });
 }
 
-function toggleIngredient(ingredient) {
-    const index = order.chosenIngredients.indexOf(ingredient);
-    if (index === -1) {
-        order.chosenIngredients.push(ingredient);
-    } else {
-        order.chosenIngredients.splice(index, 1);
+function renderStep2() {
+    // Display selected sandwich
+    const display = document.getElementById('selected-sandwich');
+    if (state.selectedSandwich) {
+        display.innerHTML = `
+            <div class="selected-sandwich-image" style="background-image: url('${getProductImage(state.selectedSandwich.nome)}')"></div>
+            <div class="selected-sandwich-info">
+                <h3>${state.selectedSandwich.nome}</h3>
+                <p>${formatPrice(state.selectedSandwich.preco)}</p>
+            </div>
+        `;
     }
-}
 
-function changeExtraQuantity(extraId, delta) {
-    const extra = menuData.adicionais.find(e => e.id === extraId);
-    const existingExtra = order.addedExtras.find(e => e.id === extraId);
+    // Render ingredients
+    const ingredientsGrid = document.getElementById('ingredients-grid');
+    ingredientsGrid.innerHTML = '';
 
-    if (existingExtra) {
-        existingExtra.quantity += delta;
-        if (existingExtra.quantity <= 0) {
-            order.addedExtras = order.addedExtras.filter(e => e.id !== extraId);
+    menuData.ingredientes.forEach(ingredient => {
+        const item = document.createElement('div');
+        item.className = 'ingredient-item';
+        if (state.chosenIngredients.includes(ingredient)) {
+            item.classList.add('selected');
         }
-    } else if (delta > 0) {
-        order.addedExtras.push({ ...extra, quantity: 1 });
-    }
 
-    renderCustomization();
+        item.innerHTML = `
+            <div class="ingredient-checkbox"></div>
+            <span class="ingredient-name">${ingredient}</span>
+        `;
+
+        item.addEventListener('click', () => {
+            if (state.chosenIngredients.includes(ingredient)) {
+                state.chosenIngredients = state.chosenIngredients.filter(i => i !== ingredient);
+                item.classList.remove('selected');
+            } else {
+                state.chosenIngredients.push(ingredient);
+                item.classList.add('selected');
+            }
+        });
+
+        ingredientsGrid.appendChild(item);
+    });
+
+    // Render extras
+    const extrasGrid = document.getElementById('extras-grid');
+    extrasGrid.innerHTML = '';
+
+    menuData.adicionais.forEach(extra => {
+        const card = document.createElement('div');
+        card.className = 'extra-card';
+
+        const isSelected = state.selectedExtras.some(e => e.id === extra.id);
+        if (isSelected) {
+            card.classList.add('selected');
+        }
+
+        card.innerHTML = `
+            <div class="extra-image" style="background-image: url('${getProductImage(extra.nome)}')"></div>
+            <div class="extra-info">
+                <h4 class="extra-name">${extra.nome}</h4>
+                <p class="extra-price">${formatPrice(extra.preco)}</p>
+            </div>
+        `;
+
+        card.addEventListener('click', () => {
+            if (state.selectedExtras.some(e => e.id === extra.id)) {
+                state.selectedExtras = state.selectedExtras.filter(e => e.id !== extra.id);
+                card.classList.remove('selected');
+            } else {
+                state.selectedExtras.push(extra);
+                card.classList.add('selected');
+            }
+        });
+
+        extrasGrid.appendChild(card);
+    });
 }
-
-// ========================================
-// STEP 3: CHOOSE DRINK
-// ========================================
 
 function renderDrinks() {
     const grid = document.getElementById('drinks-grid');
-    grid.innerHTML = menuData.bebidas.map(drink => {
-        const existingDrink = order.drinks.find(d => d.id === drink.id);
-        const quantity = existingDrink ? existingDrink.quantity : 0;
+    grid.innerHTML = '';
 
-        return `
-            <div class="product-card drink-card ${quantity > 0 ? 'selected' : ''}">
-                <div class="product-image" style="background-image: url('${getProductImage(drink.nome)}')"></div>
-                <div class="product-info">
-                    <h3 class="product-name">${drink.nome}</h3>
-                    <div class="product-price">${formatCurrency(drink.preco)}</div>
-                    <div class="quantity-controls">
-                        <button class="quantity-btn" onclick="changeDrinkQuantity(${drink.id}, -1)">−</button>
-                        <span class="quantity-display">${quantity}</span>
-                        <button class="quantity-btn" onclick="changeDrinkQuantity(${drink.id}, 1)">+</button>
-                    </div>
-                    ${quantity > 0 ? '<div class="selected-badge">✓ Adicionado</div>' : ''}
-                </div>
+    menuData.bebidas.forEach(drink => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+
+        if (state.selectedDrink && state.selectedDrink.id === drink.id) {
+            card.classList.add('selected');
+        }
+
+        card.innerHTML = `
+            <div class="product-image" style="background-image: url('${getProductImage(drink.nome)}')"></div>
+            <div class="product-info">
+                <h3 class="product-name">${drink.nome}</h3>
+                <p class="product-price">${formatPrice(drink.preco)}</p>
             </div>
         `;
-    }).join('');
+
+        card.addEventListener('click', () => {
+            state.selectedDrink = drink;
+            document.querySelectorAll('#drinks-grid .product-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+        });
+
+        grid.appendChild(card);
+    });
 }
-
-function changeDrinkQuantity(drinkId, delta) {
-    const drink = menuData.bebidas.find(d => d.id === drinkId);
-    const existingDrink = order.drinks.find(d => d.id === drinkId);
-
-    if (existingDrink) {
-        existingDrink.quantity += delta;
-        if (existingDrink.quantity <= 0) {
-            order.drinks = order.drinks.filter(d => d.id !== drinkId);
-        }
-    } else if (delta > 0) {
-        order.drinks.push({ ...drink, quantity: 1 });
-    }
-
-    renderDrinks();
-}
-
-// ========================================
-// STEP 4: CHOOSE SAUCES
-// ========================================
 
 function renderSauces() {
     const grid = document.getElementById('sauces-grid');
-    grid.innerHTML = menuData.molhos.map(sauce => {
-        const existingSauce = order.sauces.find(s => s.id === sauce.id);
-        const quantity = existingSauce ? existingSauce.quantity : 0;
+    grid.innerHTML = '';
 
-        return `
-            <div class="extra-card ${quantity > 0 ? 'selected' : ''}">
-                <div class="extra-image" style="background-image: url('${getProductImage(sauce.nome)}')"></div>
-                <div class="extra-info">
-                    <h4>${sauce.nome}</h4>
-                    <p class="extra-price">+${formatCurrency(sauce.preco)}</p>
-                    <div class="quantity-controls">
-                        <button class="quantity-btn" onclick="changeSauceQuantity(${sauce.id}, -1)">−</button>
-                        <span class="quantity-display">${quantity}</span>
-                        <button class="quantity-btn" onclick="changeSauceQuantity(${sauce.id}, 1)">+</button>
-                    </div>
-                </div>
+    menuData.molhos.forEach(sauce => {
+        const card = document.createElement('div');
+        card.className = 'extra-card';
+
+        const isSelected = state.selectedSauces.some(s => s.id === sauce.id);
+        if (isSelected) {
+            card.classList.add('selected');
+        }
+
+        card.innerHTML = `
+            <div class="extra-image" style="background-image: url('${getProductImage(sauce.nome)}')"></div>
+            <div class="extra-info">
+                <h4 class="extra-name">${sauce.nome}</h4>
+                <p class="extra-price">${formatPrice(sauce.preco)}</p>
             </div>
         `;
-    }).join('');
+
+        card.addEventListener('click', () => {
+            if (state.selectedSauces.some(s => s.id === sauce.id)) {
+                state.selectedSauces = state.selectedSauces.filter(s => s.id !== sauce.id);
+                card.classList.remove('selected');
+            } else {
+                state.selectedSauces.push(sauce);
+                card.classList.add('selected');
+            }
+        });
+
+        grid.appendChild(card);
+    });
 }
-
-function changeSauceQuantity(sauceId, delta) {
-    const sauce = menuData.molhos.find(s => s.id === sauceId);
-    const existingSauce = order.sauces.find(s => s.id === sauceId);
-
-    if (existingSauce) {
-        existingSauce.quantity += delta;
-        if (existingSauce.quantity <= 0) {
-            order.sauces = order.sauces.filter(s => s.id !== sauceId);
-        }
-    } else if (delta > 0) {
-        order.sauces.push({ ...sauce, quantity: 1 });
-    }
-
-    renderSauces();
-}
-
-// ========================================
-// STEP 5: DELIVERY & SUMMARY
-// ========================================
 
 function renderOrderSummary() {
-    const summaryItems = document.getElementById('final-summary-items');
-    const finalTotal = document.getElementById('final-total');
+    const itemsContainer = document.getElementById('summary-items');
+    const totalElement = document.getElementById('total-value');
 
-    let html = '';
+    itemsContainer.innerHTML = '';
 
     // Sandwich
-    if (order.sandwich) {
-        html += `<div class="summary-item">
-            <span>${order.sandwich.nome}</span>
-            <span>${formatCurrency(order.sandwich.preco)}</span>
-        </div>`;
+    if (state.selectedSandwich) {
+        const item = document.createElement('div');
+        item.className = 'summary-item';
 
-        if (order.chosenIngredients.length > 0) {
-            html += `<div class="summary-note">Ingredientes: ${order.chosenIngredients.join(', ')}</div>`;
+        let details = '';
+        if (state.chosenIngredients.length > 0) {
+            details = `<div class="summary-item-details">Com: ${state.chosenIngredients.join(', ')}</div>`;
         }
+
+        if (state.selectedExtras.length > 0) {
+            const extrasText = state.selectedExtras.map(e => e.nome).join(', ');
+            details += `<div class="summary-item-details">Extras: ${extrasText}</div>`;
+        }
+
+        item.innerHTML = `
+            <div class="summary-item-name">
+                ${state.selectedSandwich.nome}
+                ${details}
+            </div>
+            <span class="summary-item-price">${formatPrice(state.selectedSandwich.preco)}</span>
+        `;
+        itemsContainer.appendChild(item);
+    }
+
+    // Extras (prices)
+    state.selectedExtras.forEach(extra => {
+        const item = document.createElement('div');
+        item.className = 'summary-item';
+        item.innerHTML = `
+            <div class="summary-item-name">+ ${extra.nome}</div>
+            <span class="summary-item-price">${formatPrice(extra.preco)}</span>
+        `;
+        itemsContainer.appendChild(item);
+    });
+
+    // Drink
+    if (state.selectedDrink) {
+        const item = document.createElement('div');
+        item.className = 'summary-item';
+        item.innerHTML = `
+            <div class="summary-item-name">${state.selectedDrink.nome}</div>
+            <span class="summary-item-price">${formatPrice(state.selectedDrink.preco)}</span>
+        `;
+        itemsContainer.appendChild(item);
+    }
+
+    // Sauces
+    state.selectedSauces.forEach(sauce => {
+        const item = document.createElement('div');
+        item.className = 'summary-item';
+        item.innerHTML = `
+            <div class="summary-item-name">${sauce.nome}</div>
+            <span class="summary-item-price">${formatPrice(sauce.preco)}</span>
+        `;
+        itemsContainer.appendChild(item);
+    });
+
+    // Total
+    totalElement.textContent = formatPrice(calculateTotal());
+}
+
+// ========== WHATSAPP FUNCTION ==========
+function sendToWhatsApp(formData) {
+    let message = '*🍔 NOVO PEDIDO JANUWAY DELIVERY*\n\n';
+
+    // Sandwich
+    if (state.selectedSandwich) {
+        message += `*Sanduíche:* ${state.selectedSandwich.nome}\n`;
+        message += `Preço: ${formatPrice(state.selectedSandwich.preco)}\n`;
+
+        if (state.chosenIngredients.length > 0) {
+            message += `Ingredientes escolhidos: ${state.chosenIngredients.join(', ')}\n`;
+        }
+        message += '\n';
     }
 
     // Extras
-    order.addedExtras.forEach(extra => {
-        html += `<div class="summary-item">
-            <span>${extra.quantity}x ${extra.nome}</span>
-            <span>${formatCurrency(extra.preco * extra.quantity)}</span>
-        </div>`;
-    });
-
-    // Drinks
-    order.drinks.forEach(drink => {
-        html += `<div class="summary-item">
-            <span>${drink.quantity}x ${drink.nome}</span>
-            <span>${formatCurrency(drink.preco * drink.quantity)}</span>
-        </div>`;
-    });
-
-    // Sauces
-    order.sauces.forEach(sauce => {
-        html += `<div class="summary-item">
-            <span>${sauce.quantity}x ${sauce.nome}</span>
-            <span>${formatCurrency(sauce.preco * sauce.quantity)}</span>
-        </div>`;
-    });
-
-    summaryItems.innerHTML = html;
-    finalTotal.textContent = formatCurrency(calculateTotal());
-}
-
-// ========================================
-// WHATSAPP MESSAGE
-// ========================================
-
-function generateWhatsAppMessage(customerData) {
-    let message = '🍔 *NOVO PEDIDO - JANUWAY*\n\n';
-    message += '*PEDIDO:*\n';
-
-    // Sandwich
-    if (order.sandwich) {
-        message += `• ${order.sandwich.nome} - ${formatCurrency(order.sandwich.preco)}\n`;
-
-        if (order.chosenIngredients.length > 0) {
-            message += `  🍔 Ingredientes: ${order.chosenIngredients.join(', ')}\n`;
-        }
-
-        if (order.addedExtras.length > 0) {
-            order.addedExtras.forEach(extra => {
-                message += `  ➕ ${extra.quantity}x ${extra.nome} - ${formatCurrency(extra.preco * extra.quantity)}\n`;
-            });
-        }
+    if (state.selectedExtras.length > 0) {
+        message += '*Extras:*\n';
+        state.selectedExtras.forEach(extra => {
+            message += `- ${extra.nome} (${formatPrice(extra.preco)})\n`;
+        });
+        message += '\n';
     }
 
-    // Drinks
-    if (order.drinks.length > 0) {
-        message += '\n*BEBIDAS:*\n';
-        order.drinks.forEach(drink => {
-            message += `• ${drink.quantity}x ${drink.nome} - ${formatCurrency(drink.preco * drink.quantity)}\n`;
-        });
+    // Drink
+    if (state.selectedDrink) {
+        message += `*Bebida:* ${state.selectedDrink.nome} (${formatPrice(state.selectedDrink.preco)})\n\n`;
     }
 
     // Sauces
-    if (order.sauces.length > 0) {
-        message += '\n*MOLHOS EXTRAS:*\n';
-        order.sauces.forEach(sauce => {
-            message += `• ${sauce.quantity}x ${sauce.nome} - ${formatCurrency(sauce.preco * sauce.quantity)}\n`;
+    if (state.selectedSauces.length > 0) {
+        message += '*Molhos:*\n';
+        state.selectedSauces.forEach(sauce => {
+            message += `- ${sauce.nome} (${formatPrice(sauce.preco)})\n`;
         });
+        message += '\n';
     }
 
-    const total = calculateTotal();
-    message += `\n*TOTAL: ${formatCurrency(total)}*\n\n`;
-    message += '──────────────────\n\n';
-    message += '👤 *DADOS DO CLIENTE:*\n';
-    message += `Nome: ${customerData.name}\n`;
-    message += `Endereço: ${customerData.address}\n`;
-    message += `Bairro: ${customerData.neighborhood}\n`;
-    message += `Referência: ${customerData.reference}\n\n`;
-    message += `💳 *Pagamento:* ${customerData.payment}\n`;
+    // Total
+    message += `*TOTAL: ${formatPrice(calculateTotal())}*\n\n`;
 
-    if (customerData.notes) {
-        message += `\n📝 *Observações:* ${customerData.notes}`;
+    // Customer info
+    message += '*📍 DADOS DE ENTREGA*\n';
+    message += `Nome: ${formData.name}\n`;
+    message += `Endereço: ${formData.address}\n`;
+    message += `Bairro: ${formData.neighborhood}\n`;
+    message += `Referência: ${formData.reference}\n`;
+    message += `Pagamento: ${formData.payment}\n`;
+
+    if (formData.notes) {
+        message += `\n*Observações:* ${formData.notes}\n`;
     }
 
-    return message;
+    const whatsappNumber = '5538991254708';
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    window.location.href = whatsappURL;
 }
 
-function sendToWhatsApp(customerData) {
-    const message = generateWhatsAppMessage(customerData);
-    const whatsappURL = `https://wa.me/5538991254708?text=${encodeURIComponent(message)}`;
-
-    // Show loading
-    document.getElementById('loading-overlay').style.display = 'flex';
-
-    setTimeout(() => {
-        // Redireciona diretamente para o WhatsApp
-        window.location.href = whatsappURL;
-    }, 800);
-}
-
-// ========================================
-// EVENT LISTENERS
-// ========================================
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Start order
-    document.getElementById('start-order').addEventListener('click', () => {
-        showStep(1);
+// ========== EVENT LISTENERS ==========
+function setupEventListeners() {
+    // Welcome screen
+    document.getElementById('btn-start').addEventListener('click', () => {
+        showScreen('step1');
         renderSandwiches();
     });
 
-    // Step 2 -> Step 3
-    document.getElementById('next-to-step-3').addEventListener('click', () => {
-        showStep(3);
+    // Step 2 navigation
+    document.getElementById('back-step2').addEventListener('click', () => {
+        showScreen('step1');
+    });
+
+    document.getElementById('btn-continue-step2').addEventListener('click', () => {
+        showScreen('step3');
         renderDrinks();
     });
 
-    // Step 3 -> Step 4
-    document.getElementById('continue-drinks').addEventListener('click', () => {
-        showStep(4);
+    // Step 3 navigation
+    document.getElementById('back-step3').addEventListener('click', () => {
+        showScreen('step2');
+    });
+
+    document.getElementById('btn-continue-step3').addEventListener('click', () => {
+        showScreen('step4');
         renderSauces();
     });
 
-    document.getElementById('skip-drinks').addEventListener('click', () => {
-        showStep(4);
+    document.getElementById('btn-skip-drinks').addEventListener('click', () => {
+        state.selectedDrink = null;
+        showScreen('step4');
         renderSauces();
     });
 
-    // Step 4 -> Step 5
-    document.getElementById('skip-sauces').addEventListener('click', () => {
-        showStep(5);
+    // Step 4 navigation
+    document.getElementById('back-step4').addEventListener('click', () => {
+        showScreen('step3');
+    });
+
+    document.getElementById('btn-continue-step4').addEventListener('click', () => {
+        showScreen('step5');
         renderOrderSummary();
     });
 
-    // Back buttons
-    document.getElementById('back-to-step-1').addEventListener('click', () => {
-        showStep(1);
-        renderSandwiches();
+    document.getElementById('btn-skip-sauces').addEventListener('click', () => {
+        state.selectedSauces = [];
+        showScreen('step5');
+        renderOrderSummary();
     });
 
-    document.getElementById('back-to-step-2').addEventListener('click', () => {
-        showStep(2);
-        renderCustomization();
+    // Step 5 navigation
+    document.getElementById('back-step5').addEventListener('click', () => {
+        showScreen('step4');
     });
 
-    document.getElementById('back-to-step-3').addEventListener('click', () => {
-        showStep(3);
-        renderDrinks();
-    });
-
-    document.getElementById('back-to-step-4').addEventListener('click', () => {
-        showStep(4);
-        renderSauces();
-    });
-
-    // Submit form
+    // Form submission
     document.getElementById('delivery-form').addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const formData = new FormData(e.target);
-        const customerData = {
-            name: formData.get('name'),
-            address: formData.get('address'),
-            neighborhood: formData.get('neighborhood'),
-            reference: formData.get('reference'),
-            payment: formData.get('payment'),
-            notes: formData.get('notes') || ''
+        const formData = {
+            name: document.getElementById('name').value,
+            address: document.getElementById('address').value,
+            neighborhood: document.getElementById('neighborhood').value,
+            reference: document.getElementById('reference').value,
+            payment: document.querySelector('input[name="payment"]:checked').value,
+            notes: document.getElementById('notes').value
         };
 
-        sendToWhatsApp(customerData);
+        sendToWhatsApp(formData);
     });
+}
+
+// ========== INITIALIZATION ==========
+document.addEventListener('DOMContentLoaded', () => {
+    setupEventListeners();
+    showScreen('welcome');
 });
