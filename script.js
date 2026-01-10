@@ -106,7 +106,7 @@ const menuData = {
 let currentStep = 0;
 let order = {
     sandwich: null,
-    removedIngredients: [],
+    chosenIngredients: [],
     addedExtras: [],
     drinks: [],
     sauces: []
@@ -209,7 +209,7 @@ function renderSandwiches() {
 function selectSandwich(sandwichId) {
     const sandwich = menuData.sanduiches.find(s => s.id === sandwichId);
     order.sandwich = sandwich;
-    order.removedIngredients = []; // Reset
+    order.chosenIngredients = []; // Reset
     showStep(2);
     renderCustomization();
 }
@@ -231,20 +231,34 @@ function renderCustomization() {
         </div>
     `;
 
-    // Render ingredients to remove
-    const ingredientsList = document.getElementById('remove-ingredients');
-    ingredientsList.innerHTML = order.sandwich.ingredientes
-        .filter(ing => !ing.includes('Pão')) // Não pode remover o pão
-        .map(ingredient => `
-            <label class="ingredient-checkbox">
-                <input type="checkbox"
-                       value="${ingredient}"
-                       onchange="toggleIngredient('${ingredient}')"
-                       ${order.removedIngredients.includes(ingredient) ? 'checked' : ''}>
-                <span class="checkbox-custom"></span>
-                <span class="ingredient-name">${ingredient}</span>
-            </label>
-        `).join('');
+    // Render ingredients to choose
+    const ingredientsList = document.getElementById('choose-ingredients');
+    const availableIngredients = [
+        "Carne bovina em cubos",
+        "Frango em cubos",
+        "Peito de peru defumado",
+        "Queijo cheddar",
+        "Queijo muçarela",
+        "Alface",
+        "Tomate",
+        "Cebola roxa",
+        "Picles",
+        "Pepino",
+        "Pimentão verde",
+        "Molho barbecue",
+        "Molho Januway"
+    ];
+
+    ingredientsList.innerHTML = availableIngredients.map(ingredient => `
+        <label class="ingredient-checkbox">
+            <input type="checkbox"
+                   value="${ingredient}"
+                   onchange="toggleIngredient('${ingredient}')"
+                   ${order.chosenIngredients.includes(ingredient) ? 'checked' : ''}>
+            <span class="checkbox-custom"></span>
+            <span class="ingredient-name">${ingredient}</span>
+        </label>
+    `).join('');
 
     // Render extras to add
     const extrasGrid = document.getElementById('add-extras');
@@ -270,11 +284,11 @@ function renderCustomization() {
 }
 
 function toggleIngredient(ingredient) {
-    const index = order.removedIngredients.indexOf(ingredient);
+    const index = order.chosenIngredients.indexOf(ingredient);
     if (index === -1) {
-        order.removedIngredients.push(ingredient);
+        order.chosenIngredients.push(ingredient);
     } else {
-        order.removedIngredients.splice(index, 1);
+        order.chosenIngredients.splice(index, 1);
     }
 }
 
@@ -398,8 +412,8 @@ function renderOrderSummary() {
             <span>${formatCurrency(order.sandwich.preco)}</span>
         </div>`;
 
-        if (order.removedIngredients.length > 0) {
-            html += `<div class="summary-note">Sem: ${order.removedIngredients.join(', ')}</div>`;
+        if (order.chosenIngredients.length > 0) {
+            html += `<div class="summary-note">Ingredientes: ${order.chosenIngredients.join(', ')}</div>`;
         }
     }
 
@@ -443,8 +457,8 @@ function generateWhatsAppMessage(customerData) {
     if (order.sandwich) {
         message += `• ${order.sandwich.nome} - ${formatCurrency(order.sandwich.preco)}\n`;
 
-        if (order.removedIngredients.length > 0) {
-            message += `  ⚠️ Sem: ${order.removedIngredients.join(', ')}\n`;
+        if (order.chosenIngredients.length > 0) {
+            message += `  🍔 Ingredientes: ${order.chosenIngredients.join(', ')}\n`;
         }
 
         if (order.addedExtras.length > 0) {
@@ -495,14 +509,9 @@ function sendToWhatsApp(customerData) {
     document.getElementById('loading-overlay').style.display = 'flex';
 
     setTimeout(() => {
-        window.open(whatsappURL, '_blank');
-
-        setTimeout(() => {
-            document.getElementById('loading-overlay').style.display = 'none';
-            alert('✅ Pedido enviado! Verifique o WhatsApp para confirmar o envio.');
-            location.reload(); // Reset para novo pedido
-        }, 1500);
-    }, 1000);
+        // Redireciona diretamente para o WhatsApp
+        window.location.href = whatsappURL;
+    }, 800);
 }
 
 // ========================================
@@ -523,6 +532,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Step 3 -> Step 4
+    document.getElementById('continue-drinks').addEventListener('click', () => {
+        showStep(4);
+        renderSauces();
+    });
+
     document.getElementById('skip-drinks').addEventListener('click', () => {
         showStep(4);
         renderSauces();

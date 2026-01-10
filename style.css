@@ -74,8 +74,9 @@ body {
 }
 
 .logo {
-    height: 70px;
+    height: 120px;
     width: auto;
+    max-width: 100%;
 }
 
 .tagline {
@@ -534,12 +535,12 @@ body {
 }
 
 .ingredient-checkbox input[type="checkbox"]:checked + .checkbox-custom {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
 }
 
 .ingredient-checkbox input[type="checkbox"]:checked + .checkbox-custom::after {
-    content: '✗';
+    content: '✓';
     position: absolute;
     top: 50%;
     left: 50%;
@@ -618,7 +619,7 @@ body {
 
 .summary-note {
     font-size: 0.85rem;
-    color: #dc3545;
+    color: var(--primary-green);
     font-style: italic;
     padding: var(--spacing-xs) 0;
 }
@@ -780,6 +781,10 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+    .logo {
+        height: 90px;
+    }
+
     .welcome-title {
         font-size: 1.8rem;
     }
