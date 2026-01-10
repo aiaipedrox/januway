@@ -48,18 +48,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.5rem 1rem;
-    min-height: 100px;
+    padding: 1rem 0;
 }
 
 .logo {
-    max-height: 80px;
-    max-width: 280px;
-    width: 100%;
-    height: auto;
     display: block;
-    object-fit: contain;
-    object-position: center;
+    height: auto;
+    width: auto;
 }
 
 /* ========== PROGRESS BAR ========== */
@@ -356,7 +351,8 @@ body {
 .highlight-image {
     width: 100%;
     height: 120px;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
     background-color: var(--bg-light);
 }
@@ -510,8 +506,9 @@ body {
 
 .product-image {
     width: 100%;
-    height: 200px;
-    background-size: cover;
+    height: 180px;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
     background-color: var(--bg-light);
 }
@@ -547,8 +544,10 @@ body {
 .selected-sandwich-image {
     width: 100px;
     height: 100px;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
+    background-color: var(--bg-light);
     border-radius: 8px;
     flex-shrink: 0;
 }
@@ -669,7 +668,8 @@ body {
 .extra-image {
     width: 100%;
     height: 100px;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
     background-color: var(--bg-light);
 }
@@ -876,13 +876,7 @@ body {
 /* ========== MOBILE RESPONSIVE ========== */
 @media (max-width: 768px) {
     .logo-container {
-        padding: 1rem;
-        min-height: 80px;
-    }
-
-    .logo {
-        max-height: 60px;
-        max-width: 240px;
+        padding: 0.75rem 0;
     }
 
     .header {
@@ -985,13 +979,7 @@ body {
     }
 
     .logo-container {
-        padding: 0.75rem;
-        min-height: 70px;
-    }
-
-    .logo {
-        max-height: 50px;
-        max-width: 200px;
+        padding: 0.5rem 0;
     }
 
     .header {
