@@ -1,35 +1,35 @@
 // ========== PRODUCT IMAGES ==========
 const PRODUCT_IMAGES = {
     // Sanduíches
-    'Januway Carne Premium': 'https://i.ibb.co/Y7Rp7N6V/IMG-3826.jpg',
-    'Januway Frango': 'https://i.ibb.co/b51Njszz/IMG-3830.jpg',
-    'Januway Fit': 'https://i.ibb.co/7bjMXhD1/IMG-3832.jpg',
+    'Januway Carne Premium': 'https://i.ibb.co/27ng7Fwp/image.jpg',
+    'Januway Frango': 'https://i.ibb.co/Df4wP955/image.jpg',
+    'Januway Fit': 'https://i.ibb.co/8DRWcQQg/image.jpg',
 
     // Bebidas
-    'Coca-Cola Lata 220ml': 'https://i.ibb.co/bXXK9vGZ/IMG-3847.jpg',
-    'Guaraná Lata 350ml': 'https://i.ibb.co/j84sHs96/IMG-3853.jpg',
+    'Coca-Cola Lata 220ml': 'https://i.ibb.co/pvL8mhcf/image.jpg',
+    'Guaraná Lata 350ml': 'https://i.ibb.co/LGppTrh/image.jpg',
 
     // Molhos
-    'Molho Barbecue': 'https://i.ibb.co/wcMjJWDc/IMG-3840.jpg',
-    'Maionese Verde': 'https://i.ibb.co/KKNXy8kx/IMG-3841.jpg',
-    'Maionese de Bacon': 'https://i.ibb.co/VqZr6Ys5/IMG-3842.jpg',
-    'Maionese': 'https://i.ibb.co/52TGk2nZ/IMG-3843.jpg',
-    'Molho Januway': 'https://i.ibb.co/6XXvfCR4/IMG-3844.jpg',
-    'Sachê Ketchup': 'https://i.ibb.co/2KTyFSz2/IMG-3846.jpg',
+    'Molho Barbecue': 'https://i.ibb.co/99L3zx12/image.jpg',
+    'Maionese Verde': 'https://i.ibb.co/xtcng031/image.jpg',
+    'Maionese de Bacon': 'https://i.ibb.co/5xT13DyH/image.jpg',
+    'Maionese': 'https://i.ibb.co/8Dvh9Y0S/image.jpg',
+    'Molho Januway': 'https://images.unsplash.com/photo-1596040033229-a0b3b9b22e9a?w=400&h=400&fit=crop',
+    'Sachê Ketchup': 'https://i.ibb.co/jkhng6cv/image.jpg',
 
     // Adicionais
-    'Carne Bovina em cubos': 'https://i.ibb.co/gj59Fmy6/IMG-3833.jpg',
-    'Frango em cubos temperado': 'https://i.ibb.co/nrQM3xgK/IMG-3834.jpg',
-    'Peito de Peru defumado': 'https://i.ibb.co/mzRd2YJ8/IMG-3835.jpg',
-    'Muçarela': 'https://i.ibb.co/M1prQkfg/IMG-3836.jpg',
-    'Queijo Cheddar': 'https://i.ibb.co/qr4cgMZ4/IMG-3837.jpg',
-    'Picles': 'https://i.ibb.co/xsyqrfdx/IMG-3838.jpg',
-    'Pepino': 'https://i.ibb.co/mqWwhxM6/IMG-3839.jpg',
-    'Pimentão': 'https://i.ibb.co/8M66wd95/IMG-3848.jpg',
-    'Cebola Roxa': 'https://i.ibb.co/S0Xq3vrS/IMG-3849.jpg',
-    'Tomate': 'https://i.ibb.co/6rCcN7Xr/IMG-3850.jpg',
-    'Alface': 'https://i.ibb.co/bXNYxZCy/IMG-3851.jpg',
-    'Pepperoni': 'https://i.ibb.co/4pzxz4JF/IMG-3852.jpg'
+    'Carne Bovina em cubos': 'https://i.ibb.co/0pqpMXT2/image.jpg',
+    'Frango em cubos temperado': 'https://i.ibb.co/Jj5t2xdp/image.jpg',
+    'Peito de Peru defumado': 'https://i.ibb.co/GfGm6vFM/image.jpg',
+    'Muçarela': 'https://i.ibb.co/Kc5NPdPz/image.jpg',
+    'Queijo Cheddar': 'https://i.ibb.co/yvvG2yD/image.jpg',
+    'Picles': 'https://i.ibb.co/1YrZ1nNS/image.jpg',
+    'Pepino': 'https://i.ibb.co/JWQJL2r9/image.jpg',
+    'Pimentão': 'https://i.ibb.co/vx9h6W21/image.jpg',
+    'Cebola Roxa': 'https://i.ibb.co/ycwfdNHr/image.jpg',
+    'Tomate': 'https://i.ibb.co/DH0yP5qw/image.jpg',
+    'Alface': 'https://i.ibb.co/zTmJKyLn/image.jpg',
+    'Pepperoni': 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400&h=400&fit=crop'
 };
 
 // ========== MENU DATA ==========
