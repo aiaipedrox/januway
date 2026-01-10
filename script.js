@@ -1,46 +1,43 @@
 // ========================================
 // CONFIGURAÇÃO DE IMAGENS
 // ========================================
-// IMPORTANTE: Substitua as URLs abaixo pelas suas próprias imagens!
-// Você pode usar:
-// 1. URLs do Unsplash (gratuito): https://unsplash.com
-// 2. Suas próprias imagens hospedadas
-// 3. Imagens na pasta assets/ (ex: "assets/carne-premium.jpg")
+// Imagens reais dos produtos Januway
 
 const PRODUCT_IMAGES = {
-    // Sanduíches - Substitua pelas suas fotos reais!
-    'Januway Carne Premium': 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop',
-    'Januway Frango': 'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=800&h=600&fit=crop',
-    'Januway Fit': 'https://images.unsplash.com/photo-1553909489-cd47e0907980?w=800&h=600&fit=crop',
+    // Sanduíches - Fotos Reais Januway
+    'Januway Carne Premium': 'https://i.ibb.co/Y7Rp7N6V/IMG-3826.jpg',
+    'Januway Frango': 'https://i.ibb.co/b51Njszz/IMG-3830.jpg',
+    'Januway Fit': 'https://i.ibb.co/TBnVLNNM/IMG-3832.jpg',
 
     // Bebidas
-    'Coca-Cola Lata 220ml': 'https://images.unsplash.com/photo-1554866585-cd94860890b7?w=400&h=400&fit=crop',
-    'Guaraná Lata 350ml': 'https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=400&h=400&fit=crop',
+    'Coca-Cola Lata 220ml': 'https://i.ibb.co/wNzXvcVS/IMG-3864.jpg',
+    'Guaraná Lata 350ml': 'https://i.ibb.co/DqKKBYg/IMG-3865.jpg',
 
     // Molhos
-    'Molho Barbecue': 'https://images.unsplash.com/photo-1472476443507-c7a5948772fc?w=400&h=400&fit=crop',
-    'Maionese Verde': 'https://images.unsplash.com/photo-1596040033229-a0b3b9b22e9a?w=400&h=400&fit=crop',
-    'Maionese de Bacon': 'https://images.unsplash.com/photo-1596040033229-a0b3b9b22e9a?w=400&h=400&fit=crop',
-    'Maionese': 'https://images.unsplash.com/photo-1596040033229-a0b3b9b22e9a?w=400&h=400&fit=crop',
+    'Molho Barbecue': 'https://i.ibb.co/LzWhbTc6/IMG-3860.jpg',
+    'Maionese Verde': 'https://i.ibb.co/q34HgfxN/IMG-3861.jpg',
+    'Maionese de Bacon': 'https://i.ibb.co/jZh8YK2X/IMG-3862.jpg',
+    'Maionese': 'https://i.ibb.co/QFS5MDf1/IMG-3866.jpg',
     'Molho Januway': 'https://images.unsplash.com/photo-1596040033229-a0b3b9b22e9a?w=400&h=400&fit=crop',
-    'Sachê Ketchup': 'https://images.unsplash.com/photo-1596040033229-a0b3b9b22e9a?w=400&h=400&fit=crop',
+    'Sachê Ketchup': 'https://i.ibb.co/v410Zw7x/IMG-3863.jpg',
 
     // Adicionais (proteínas)
-    'Carne Bovina em cubos': 'https://images.unsplash.com/photo-1588168333986-5078d3ae3976?w=400&h=400&fit=crop',
-    'Frango em cubos temperado': 'https://images.unsplash.com/photo-1588168333986-5078d3ae3976?w=400&h=400&fit=crop',
-    'Peito de Peru defumado': 'https://images.unsplash.com/photo-1588168333986-5078d3ae3976?w=400&h=400&fit=crop',
+    'Carne Bovina em cubos': 'https://i.ibb.co/nqrqc09m/IMG-3833.jpg',
+    'Frango em cubos temperado': 'https://i.ibb.co/LdnR6QPg/IMG-3834.jpg',
+    'Peito de Peru defumado': 'https://i.ibb.co/nq4pGsR1/IMG-3835.jpg',
+    'Pepperoni': 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400&h=400&fit=crop',
 
     // Adicionais (queijos)
-    'Muçarela': 'https://images.unsplash.com/photo-1618164435735-413d3b066c9a?w=400&h=400&fit=crop',
-    'Queijo Cheddar': 'https://images.unsplash.com/photo-1618164435735-413d3b066c9a?w=400&h=400&fit=crop',
+    'Muçarela': 'https://i.ibb.co/zWm8MpMH/IMG-3837.jpg',
+    'Queijo Cheddar': 'https://i.ibb.co/wGG3tWT/IMG-3838.jpg',
 
     // Adicionais (vegetais)
-    'Picles': 'https://images.unsplash.com/photo-1530297698134-626d95460d8f?w=400&h=400&fit=crop',
-    'Pepino': 'https://images.unsplash.com/photo-1589927986089-35812378d34a?w=400&h=400&fit=crop',
-    'Pimentão': 'https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=400&h=400&fit=crop',
-    'Cebola Roxa': 'https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=400&h=400&fit=crop',
-    'Tomate': 'https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=400&h=400&fit=crop',
-    'Alface': 'https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?w=400&h=400&fit=crop'
+    'Picles': 'https://i.ibb.co/qLNBKn8Z/IMG-3840.jpg',
+    'Pepino': 'https://i.ibb.co/dsgY96kR/IMG-3841.jpg',
+    'Pimentão': 'https://i.ibb.co/SXSc4gqN/IMG-3842.jpg',
+    'Cebola Roxa': 'https://i.ibb.co/DHxVz10Z/IMG-3857.jpg',
+    'Tomate': 'https://i.ibb.co/sd8GpyBs/IMG-3858.jpg',
+    'Alface': 'https://i.ibb.co/5g1FqNzM/IMG-3859.jpg'
 };
 
 // ========================================
@@ -54,7 +51,7 @@ const menuData = {
             nome: "Januway Carne Premium",
             descricao: "Pão de 15cm, carne bovina em cubos 160g, queijo cheddar, alface, tomate, cebola roxa, pimentão verde, molho barbecue",
             ingredientes: ["Pão artesanal 15cm", "Carne bovina em cubos 160g", "Queijo cheddar", "Alface", "Tomate", "Cebola roxa", "Pimentão verde", "Molho barbecue"],
-            preco: 30.00,
+            preco: 28.00,
             categoria: "sanduiches"
         },
         {
@@ -62,7 +59,7 @@ const menuData = {
             nome: "Januway Frango",
             descricao: "Pão de 15cm, frango em cubos temperado 160g, queijo muçarela, alface, tomate, cebola roxa, picles, molho Januway",
             ingredientes: ["Pão artesanal 15cm", "Frango em cubos 160g", "Queijo muçarela", "Alface", "Tomate", "Cebola roxa", "Picles", "Molho Januway"],
-            preco: 28.00,
+            preco: 25.00,
             categoria: "sanduiches"
         },
         {
@@ -90,6 +87,7 @@ const menuData = {
         { id: 12, nome: "Carne Bovina em cubos", preco: 5.00, categoria: "adicionais" },
         { id: 13, nome: "Frango em cubos temperado", preco: 4.00, categoria: "adicionais" },
         { id: 14, nome: "Peito de Peru defumado", preco: 4.00, categoria: "adicionais" },
+        { id: 23, nome: "Pepperoni", preco: 4.00, categoria: "adicionais" },
         { id: 15, nome: "Muçarela", preco: 3.00, categoria: "adicionais" },
         { id: 16, nome: "Queijo Cheddar", preco: 3.00, categoria: "adicionais" },
         { id: 17, nome: "Picles", preco: 3.00, categoria: "adicionais" },
@@ -491,7 +489,7 @@ function generateWhatsAppMessage(customerData) {
 
 function sendToWhatsApp(customerData) {
     const message = generateWhatsAppMessage(customerData);
-    const whatsappURL = `https://wa.me/5573936180266?text=${encodeURIComponent(message)}`;
+    const whatsappURL = `https://wa.me/5538991254708?text=${encodeURIComponent(message)}`;
 
     // Show loading
     document.getElementById('loading-overlay').style.display = 'flex';

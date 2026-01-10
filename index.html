@@ -12,26 +12,7 @@
     <header class="header">
         <div class="container">
             <div class="logo-container">
-                <svg class="logo" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Hamburguer Icon -->
-                    <g transform="translate(10, 10)">
-                        <!-- Pão de cima -->
-                        <ellipse cx="30" cy="15" rx="28" ry="12" fill="#d4a574"/>
-                        <ellipse cx="30" cy="15" rx="25" ry="10" fill="#e6b887"/>
-                        <!-- Alface -->
-                        <path d="M 5,25 Q 30,20 55,25" fill="#7cb342" stroke="#689f38" stroke-width="2"/>
-                        <!-- Tomate -->
-                        <ellipse cx="30" cy="30" rx="25" ry="4" fill="#e53935"/>
-                        <!-- Carne -->
-                        <rect x="8" y="33" width="44" height="6" rx="2" fill="#6d4c41"/>
-                        <!-- Queijo -->
-                        <rect x="10" y="39" width="40" height="4" rx="1" fill="#f3ec19"/>
-                        <!-- Pão de baixo -->
-                        <ellipse cx="30" cy="48" rx="28" ry="8" fill="#d4a574"/>
-                    </g>
-                    <!-- Texto JANUWAY -->
-                    <text x="75" y="50" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#1a4d2e">JANUWAY</text>
-                </svg>
+                <img src="https://i.ibb.co/spvGNDrL/2-F117892-404-B-4-B05-923-B-4032-CBB2-ADE1.png" alt="Januway" class="logo">
             </div>
             <p class="tagline">Sanduíches Artesanais Premium</p>
         </div>
@@ -191,12 +172,12 @@
                         <label class="radio-label">
                             <input type="radio" name="payment" value="PIX" required>
                             <span class="radio-custom"></span>
-                            💳 PIX
+                            💰 PIX
                         </label>
                         <label class="radio-label">
-                            <input type="radio" name="payment" value="Cartão" required>
+                            <input type="radio" name="payment" value="Dinheiro" required>
                             <span class="radio-custom"></span>
-                            💳 Cartão
+                            💵 Dinheiro
                         </label>
                     </div>
                 </div>
@@ -204,6 +185,11 @@
                 <div class="form-group">
                     <label for="customer-notes">Observações</label>
                     <textarea id="customer-notes" name="notes" rows="3" placeholder="Ex: Sem cebola roxa, ponto da carne bem passado..."></textarea>
+                </div>
+
+                <div class="whatsapp-info">
+                    <p>🎯 <strong>Pronto para finalizar?</strong></p>
+                    <p>Ao clicar no botão abaixo, seu pedido será enviado automaticamente para nosso WhatsApp. Você será redirecionado para completar o envio!</p>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-large btn-whatsapp">
