@@ -147,12 +147,22 @@ function updateProgressBar(step) {
     };
 
     const currentStepNumber = stepMap[step];
+    const progressPercentage = ((currentStepNumber - 1) / 4) * 100; // 4 steps no total (0-100%)
 
+    // Atualizar barra de progresso
+    const progressFill = document.getElementById('progress-bar-fill');
+    if (progressFill) {
+        progressFill.style.width = `${progressPercentage}%`;
+    }
+
+    // Atualizar circles
     document.querySelectorAll('.progress-step').forEach((stepEl, index) => {
-        if (index < currentStepNumber) {
+        stepEl.classList.remove('active', 'completed');
+
+        if (index + 1 === currentStepNumber) {
             stepEl.classList.add('active');
-        } else {
-            stepEl.classList.remove('active');
+        } else if (index + 1 < currentStepNumber) {
+            stepEl.classList.add('completed');
         }
     });
 }
